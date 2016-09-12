@@ -7,5 +7,6 @@ namespace FishingLocationGPS.DataIO
 {
     public class Class1
     {
+
     }
 }
