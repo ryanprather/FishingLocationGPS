@@ -44,7 +44,9 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <Frame x:Name="_NavigationFrame"   HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  />
+                    <StackPanel Name ="control_display" Orientation="Horizontal" >
+
+                    </StackPanel>
                 </Grid>
             </SplitView.Content>
         </SplitView>

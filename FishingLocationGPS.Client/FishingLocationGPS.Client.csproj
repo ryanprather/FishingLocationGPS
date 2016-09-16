@@ -95,10 +95,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PageHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AddLocation.xaml.cs">
+      <DependentUpon>AddLocation.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,17 +129,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\AddLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FishingLocationGPS.DataIO\FishingLocationGPS.DataIO.csproj">
-      <Project>{687b7ce3-7c41-44e1-a177-ddb705673a4a}</Project>
+      <Project>{ae27c103-e8b9-4886-a0c4-a9e221bead6d}</Project>
       <Name>FishingLocationGPS.DataIO</Name>
     </ProjectReference>
     <ProjectReference Include="..\FishingLocationGPS.Models\FishingLocationGPS.Models.csproj">
-      <Project>{06b5c767-f19f-4a64-bcfe-1329b8352c23}</Project>
+      <Project>{f50bc5b9-88da-4953-b492-3bd318ff369c}</Project>
       <Name>FishingLocationGPS.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
