@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{687B7CE3-7C41-44E1-A177-DDB705673A4A}</ProjectGuid>
+    <ProjectGuid>{AE27C103-E8B9-4886-A0C4-A9E221BEAD6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FishingLocationGPS.DataIO</RootNamespace>

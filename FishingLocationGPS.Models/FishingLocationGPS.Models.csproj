@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06B5C767-F19F-4A64-BCFE-1329B8352C23}</ProjectGuid>
+    <ProjectGuid>{F50BC5B9-88DA-4953-B492-3BD318FF369C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FishingLocationGPS.Models</RootNamespace>
