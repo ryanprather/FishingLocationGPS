@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FishingLocationGPS.
 
 namespace FishingLocationGPS.DataIO.Context
 {
@@ -13,6 +12,5 @@ namespace FishingLocationGPS.DataIO.Context
     {
         public DbSet<Models.DbModels.Location> locations { get; set; }
 
-        public string Notes { get; set; }
     }
 }
