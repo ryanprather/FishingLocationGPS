@@ -12,5 +12,6 @@ namespace FishingLocationGPS.DataIO.Context
     {
         public DbSet<Models.DbModels.Location> locations { get; set; }
 
+        public string Notes { get; set; }
     }
 }
