@@ -21,7 +21,6 @@ namespace FishingLocationGPS.DataIO
 
             try
             {
-                //var formatLocation = String.Format("POINT({0} {1})", viewModel.Latitude.ToString().Replace(",", "."), viewModel.Longitude.ToString().Replace(",", "."));
                 BasicGeoposition position = new BasicGeoposition();
                 position.Latitude = 47.643;
                 position.Longitude = -122.131;
