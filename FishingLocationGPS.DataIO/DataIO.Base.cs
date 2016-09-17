@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 
 namespace FishingLocationGPS.DataIO
 {
     public class DataIO
     {
             
-        public Models.DBModels.Location ConvertViewModel(Models.ViewModels.Location viewModel)
+        public Models.DbModels.Location ConvertViewModel(Models.ViewModels.Location viewModel)
         {
-            var location = new Models.DBModels.Location()
+            var location = new Models.DbModels.Location()
             {
                 LocationGuid = viewModel.LocationGuid,
                 Name = viewModel.Name,
@@ -21,8 +21,11 @@ namespace FishingLocationGPS.DataIO
 
             try
             {
-                var formatLocation = String.Format("POINT({0} {1})", viewModel.Latitude.ToString().Replace(",", "."), viewModel.Longitude.ToString().Replace(",", "."));
-                location.GPSLocation = DbGeography.FromText(formatLocation);
+                //var formatLocation = String.Format("POINT({0} {1})", viewModel.Latitude.ToString().Replace(",", "."), viewModel.Longitude.ToString().Replace(",", "."));
+                BasicGeoposition position = new BasicGeoposition();
+                position.Latitude = 47.643;
+                position.Longitude = -122.131;
+                Geopoint hintPoint = new Geopoint(position);
             }
             catch (Exception ex)
             {
