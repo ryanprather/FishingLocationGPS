@@ -21,11 +21,11 @@ namespace FishingLocationGPS.DataIO
 
             try
             {
-                //var formatLocation = String.Format("POINT({0} {1})", viewModel.Latitude.ToString().Replace(",", "."), viewModel.Longitude.ToString().Replace(",", "."));
                 BasicGeoposition position = new BasicGeoposition();
-                position.Latitude = 47.643;
-                position.Longitude = -122.131;
-                Geopoint hintPoint = new Geopoint(position);
+                position.Latitude = Double.Parse(viewModel.Latitude);
+                position.Longitude = Double.Parse(viewModel.Longitude);
+                Geopoint gpsPoint = new Geopoint(position);
+                //location.GpsLocation = gpsPoint;
             }
             catch (Exception ex)
             {

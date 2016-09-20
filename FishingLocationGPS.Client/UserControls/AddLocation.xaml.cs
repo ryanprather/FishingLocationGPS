@@ -20,6 +20,8 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class AddLocation : UserControl
     {
+        private DataIO.DataIO dataIO = new DataIO.DataIO();
+
         public AddLocation()
         {
             this.InitializeComponent();
@@ -29,7 +31,12 @@ namespace FishingLocationGPS.UserControls
         {
             var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
             location.LocationGuid = System.Guid.NewGuid();
-            var asdf = "";
+            var dbLocation = dataIO.ConvertViewModel(location);
+            using (var dbContext = new DataIO.Context.AppContext())
+            {
+                dbContext.Locations.Add(dbLocation);
+                dbContext.SaveChanges();
+            } 
         }
     }
 }

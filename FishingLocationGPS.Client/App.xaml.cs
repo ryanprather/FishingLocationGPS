@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,11 @@ namespace FishingLocationGPS
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new DataIO.Context.AppContext())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>
