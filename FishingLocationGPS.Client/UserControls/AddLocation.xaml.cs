@@ -1,4 +1,6 @@
-﻿using FishingLocationGPS.Helpers;
+﻿using FishingLocationGPS.Client.DataIO.Context;
+using FishingLocationGPS.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,14 +31,22 @@ namespace FishingLocationGPS.UserControls
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
-            location.LocationGuid = System.Guid.NewGuid();
-            var dbLocation = dataIO.ConvertViewModel(location);
-            using (var dbContext = new DataIO.Context.AppContext())
+            try
             {
-                dbContext.Locations.Add(dbLocation);
-                dbContext.SaveChanges();
-            } 
+                var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
+                var dbLocation = dataIO.ConvertViewModel(location);
+                using (var dbContext = new DbAppContext())
+                {
+                    dbContext.Locations.Add(dbLocation);
+                    dbContext.SaveChanges();
+                }
+                // Clear all fields //
+            }
+            catch (Exception ex)
+            {
+
+            }
+             
         }
     }
 }

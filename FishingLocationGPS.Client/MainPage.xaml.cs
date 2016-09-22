@@ -24,6 +24,7 @@ namespace FishingLocationGPS
     public sealed partial class MainPage : Page
     {
         private UserControls.AddLocation ucAddLocation;
+        private UserControls.ViewLocation ucViewLocation;
 
         public MainPage()
         {
@@ -35,12 +36,10 @@ namespace FishingLocationGPS
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
-        async private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var clickedPanel = (StackPanel)sender;
             var name = clickedPanel.Name.ToUpper();
-            var dialog = new MessageDialog(name);
-            await dialog.ShowAsync();
             var controls = control_display.Children;
             foreach (var control in controls)
             {
@@ -51,6 +50,11 @@ namespace FishingLocationGPS
                 case "ADD":
                     if (ucAddLocation == null) ucAddLocation = new UserControls.AddLocation();
                     control_display.Children.Add(ucAddLocation);
+                    break;
+
+                case "VIEW":
+                    if (ucViewLocation == null) ucViewLocation = new UserControls.ViewLocation();
+                    control_display.Children.Add(ucViewLocation);
                     break;
             }
         }

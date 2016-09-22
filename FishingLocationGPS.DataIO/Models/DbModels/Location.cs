@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 
-namespace FishingLocationGPS.Models.DbModels
+namespace FishingLocationGPS.DataIO.Models.DbModels
 {
     [Table("FishingLocation")]
     public class FishingLocation
