@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 
-namespace FishingLocationGPS.DataIO
+namespace FishingLocationGPS.Client.DataIO
 {
     public class DataIO
     {

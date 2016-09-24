@@ -1,4 +1,5 @@
-﻿using FishingLocationGPS.Client.DataIO.Context;
+﻿using FishingLocationGPS.Client.DataIO;
+using FishingLocationGPS.Client.DataIO.Context;
 using FishingLocationGPS.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,31 +24,34 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class AddLocation : UserControl
     {
-        private DataIO.DataIO dataIO = new DataIO.DataIO();
+        private DataIO dataIO = new DataIO();
 
         public AddLocation()
         {
             this.InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
-                var dbLocation = dataIO.ConvertViewModel(location);
-                using (var dbContext = new DbAppContext())
+                var location = PageHelper.GetObject<Client.Models.ViewModels.Location>(Grid_AddLocation);
+                var isValid = await PageHelper.ValidateObject(location);
+                if (isValid)
                 {
-                    dbContext.Locations.Add(dbLocation);
-                    dbContext.SaveChanges();
+                    var dbLocation = dataIO.ConvertViewModel(location);
+                    using (var dbContext = new DbAppContext())
+                    {
+                        dbContext.Locations.Add(dbLocation);
+                        dbContext.SaveChanges();
+                    }
                 }
-                // Clear all fields //
             }
             catch (Exception ex)
             {
-
+                var dailog = new MessageDialog(ex.Message);
+                await dailog.ShowAsync();
             }
-             
         }
     }
 }

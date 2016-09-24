@@ -35,7 +35,7 @@ namespace FishingLocationGPS
 
             using (var db = new DbAppContext())
             {
-                db.Database.EnsureCreated();
+                //db.Database.EnsureCreated();
                 db.Database.Migrate();
             }
         }

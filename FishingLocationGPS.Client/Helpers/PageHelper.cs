@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -133,7 +134,7 @@ namespace FishingLocationGPS.Helpers
             return result;
         }
 
-        public static bool ValidateObject(object obj)
+        public static async Task<bool> ValidateObject(object obj)
         {
             var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var context = new ValidationContext(obj, serviceProvider: null, items: null);
@@ -146,7 +147,8 @@ namespace FishingLocationGPS.Helpers
                 {
                     formattedError += error.ErrorMessage + "\n";
                 }
-                //MessageBox.Show(formattedError, "Errors");
+                var dailog = new MessageDialog(formattedError);
+                await dailog.ShowAsync();
             }
 
             return isValid;
