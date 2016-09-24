@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
+using FishingLocationGPS.Models;
 
-namespace FishingLocationGPS.Client.DataIO
+namespace FishingLocationGPS.Client
 {
     public class DataIO
     {
@@ -24,7 +25,8 @@ namespace FishingLocationGPS.Client.DataIO
                 position.Latitude = Double.Parse(viewModel.Latitude);
                 position.Longitude = Double.Parse(viewModel.Longitude);
                 Geopoint gpsPoint = new Geopoint(position);
-                //location.GpsLocation = gpsPoint;
+                location.Latitude = (decimal)position.Latitude;
+                location.Longitude = (decimal)position.Longitude;
             }
             catch (Exception ex)
             {

@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace FishingLocationGPS.Helpers
+namespace FishingLocationGPS.Client.Helpers
 {
     public class PageHelper
     {

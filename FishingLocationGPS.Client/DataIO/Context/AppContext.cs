@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace FishingLocationGPS.Client.DataIO.Context
+namespace FishingLocationGPS.Client
 {
     public class DbAppContext: DbContext
     {
@@ -17,7 +17,22 @@ namespace FishingLocationGPS.Client.DataIO.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=" + Path.Combine(ApplicationData.Current.LocalFolder.Path, "FishingAppData.db"));
-        }
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "FishingAppData.db" };
+            var connectionString = connectionStringBuilder.ToString();
+            var connection = new SqliteConnection(connectionString);
+            
+            optionsBuilder.UseSqlite(connection);
+          }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Models.DbModels.FishingLocation>()
+                            .HasKey(item => item.LocationId)
+                            .HasName("LocationId");
+            
+          }
     }
+
+
 }

@@ -107,7 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbModels\Location.cs" />
+    <Compile Include="DbModels\FishingLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Location.cs" />
     <EmbeddedResource Include="Properties\FishingLocationGPS.Models.rd.xml" />

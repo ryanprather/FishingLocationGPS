@@ -1,4 +1,4 @@
-﻿using FishingLocationGPS.Client.DataIO.Context;
+﻿using FishingLocationGPS.Client;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace FishingLocationGPS
-{
+namespace FishingLocationGPS { 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -35,7 +34,7 @@ namespace FishingLocationGPS
 
             using (var db = new DbAppContext())
             {
-                //db.Database.EnsureCreated();
+                db.Database.EnsureCreated();
                 db.Database.Migrate();
             }
         }

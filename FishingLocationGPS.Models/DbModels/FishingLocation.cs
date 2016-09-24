@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 
-namespace FishingLocationGPS.Client.Models.DbModels
+namespace FishingLocationGPS.Models.DbModels
 {
-    [Table("FishingLocation")]
+    [Table("FishingLocations")]
     public class FishingLocation
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -1,6 +1,5 @@
-﻿using FishingLocationGPS.Client.DataIO;
-using FishingLocationGPS.Client.DataIO.Context;
-using FishingLocationGPS.Helpers;
+﻿using FishingLocationGPS.Client;
+using FishingLocationGPS.Client.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,7 +34,7 @@ namespace FishingLocationGPS.UserControls
         {
             try
             {
-                var location = PageHelper.GetObject<Client.Models.ViewModels.Location>(Grid_AddLocation);
+                var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
                 var isValid = await PageHelper.ValidateObject(location);
                 if (isValid)
                 {
@@ -45,6 +44,8 @@ namespace FishingLocationGPS.UserControls
                         dbContext.Locations.Add(dbLocation);
                         dbContext.SaveChanges();
                     }
+
+                    this.ClearFields();
                 }
             }
             catch (Exception ex)
@@ -52,6 +53,14 @@ namespace FishingLocationGPS.UserControls
                 var dailog = new MessageDialog(ex.Message);
                 await dailog.ShowAsync();
             }
+        }
+
+        private void ClearFields()
+        {
+            Name.Text = String.Empty;
+            Longitude.Text = String.Empty;
+            Latitude.Text = String.Empty;
+            Notes.Text = String.Empty;
         }
     }
 }
