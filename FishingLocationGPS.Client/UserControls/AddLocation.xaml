@@ -7,10 +7,9 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="FishingLocationGPS.UserControls.AddLocation"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+>
 
-    <Grid x:Name="Grid_AddLocation">
+    <Grid x:Name="Grid_AddLocation" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="10"/>
@@ -39,6 +38,6 @@
     		Height="82" Margin="0,14,0,4.8" Grid.Row="3" Width="224"/>
 
         <Button x:Name="btnAdd" Content="Save" Grid.Column="2" HorizontalAlignment="Left" Margin="149,10.2,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
-        <Maps:MapControl HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ProgressRing Grid.Column="1" Grid.Row="2" Name="prWait"  />
     </Grid>
 </UserControl>

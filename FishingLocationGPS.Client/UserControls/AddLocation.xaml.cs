@@ -34,6 +34,7 @@ namespace FishingLocationGPS.UserControls
         {
             try
             {
+                prWait.IsActive = true;
                 var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
                 var isValid = await PageHelper.ValidateObject(location);
                 if (isValid)
@@ -47,6 +48,7 @@ namespace FishingLocationGPS.UserControls
 
                     this.ClearFields();
                 }
+                prWait.IsActive = false;
             }
             catch (Exception ex)
             {
