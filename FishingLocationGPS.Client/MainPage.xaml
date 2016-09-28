@@ -25,6 +25,11 @@
                         Width="70" Height="70" Background="Transparent"/>
                         <TextBlock Text="Add Location" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
+                    <StackPanel Name="Manage" Orientation="Horizontal" Tapped="StackPanel_Tapped">
+                        <Button x:Name="MenuButton6" FontFamily="Segoe MDL2 Assets" Content="&#xE912;"
+                        Width="70" Height="70" Background="Transparent"/>
+                        <TextBlock Text="Manage Locations" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
                     <StackPanel Name="Search" Orientation="Horizontal" Tapped="StackPanel_Tapped">
                         <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE721;"
                         Width="70" Height="70" Background="Transparent"/>
@@ -44,9 +49,11 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <StackPanel Name ="control_display" Orientation="Horizontal" >
+                    <Canvas CanDrag="True">
+                        <StackPanel Name ="control_display" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,20,0,0" >
 
-                    </StackPanel>
+                        </StackPanel>
+                    </Canvas>
                 </Grid>
             </SplitView.Content>
         </SplitView>

@@ -26,6 +26,7 @@ namespace FishingLocationGPS
         private UserControls.AddLocation ucAddLocation;
         //private UserControls.ViewLocation ucViewLocation;
         private UserControls.SearchLocation ucSearchLocation;
+        private UserControls.ucManageLocations ucManageLocations;
 
         public MainPage()
         {
@@ -53,9 +54,9 @@ namespace FishingLocationGPS
                     control_display.Children.Add(ucAddLocation);
                     break;
 
-                case "VIEW":
-                    //if (ucViewLocation == null) ucViewLocation = new UserControls.ViewLocation();
-                    //control_display.Children.Add(ucViewLocation);
+                case "MANAGE":
+                    ucManageLocations = new UserControls.ucManageLocations();
+                    control_display.Children.Add(ucManageLocations);
                     break;
 
                 case "SEARCH":
