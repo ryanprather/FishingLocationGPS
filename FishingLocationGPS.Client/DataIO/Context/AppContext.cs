@@ -17,11 +17,11 @@ namespace FishingLocationGPS.Client
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "FishingAppData.db" };
-            var connectionString = connectionStringBuilder.ToString();
-            var connection = new SqliteConnection(connectionString);
+            //var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "FishingAppData.db" };
+            //var connectionString = connectionStringBuilder.ToString();
+            //var connection = new SqliteConnection(connectionString);
             
-            optionsBuilder.UseSqlite(connection);
+            optionsBuilder.UseSqlite("DataSource="+ Path.Combine(ApplicationData.Current.LocalFolder.Path, "FishingAppData.db"));
           }
 
 

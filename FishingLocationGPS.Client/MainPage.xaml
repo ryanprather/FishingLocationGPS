@@ -20,11 +20,6 @@
                         Width="70" Height="70" Background="Transparent"/>
                         <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
-                    <StackPanel Name="Add" Orientation="Horizontal" Tapped="StackPanel_Tapped">
-                        <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE710;"
-                        Width="70" Height="70" Background="Transparent"/>
-                        <TextBlock Text="Add Location" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
                     <StackPanel Name="Manage" Orientation="Horizontal" Tapped="StackPanel_Tapped">
                         <Button x:Name="MenuButton6" FontFamily="Segoe MDL2 Assets" Content="&#xE912;"
                         Width="70" Height="70" Background="Transparent"/>

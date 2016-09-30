@@ -98,14 +98,14 @@
     </Compile>
     <Compile Include="DataIO\Context\AppContext.cs" />
     <Compile Include="DataIO\DataIO.Base.cs" />
+    <Compile Include="Dialogs\cdAddLocation.xaml.cs">
+      <DependentUpon>cdAddLocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\PageHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\AddLocation.xaml.cs">
-      <DependentUpon>AddLocation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\SearchLocation.xaml.cs">
       <DependentUpon>SearchLocation.xaml</DependentUpon>
     </Compile>
@@ -135,13 +135,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dialogs\cdAddLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\AddLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SearchLocation.xaml">
       <SubType>Designer</SubType>

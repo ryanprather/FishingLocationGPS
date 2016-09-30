@@ -1,6 +1,5 @@
 ﻿using FishingLocationGPS.Client;
 using FishingLocationGPS.Client.Helpers;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,24 +16,29 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+// The Content Dialog item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace FishingLocationGPS.UserControls
+namespace FishingLocationGPS.Dialogs
 {
-    public sealed partial class AddLocation : UserControl
+    public sealed partial class cdAddLocation : ContentDialog
     {
         private DataIO dataIO = new DataIO();
 
-        public AddLocation()
+        public cdAddLocation()
         {
             this.InitializeComponent();
         }
 
-        private async void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            this.Hide();
+        }
+
+
+        private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             try
             {
-                prWait.IsActive = true;
                 var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
                 var isValid = await PageHelper.ValidateObject(location);
                 if (isValid)
@@ -42,13 +46,14 @@ namespace FishingLocationGPS.UserControls
                     var dbLocation = dataIO.ConvertViewModel(location);
                     using (var dbContext = new DbAppContext())
                     {
+                        var dbddLocation = dbContext.Database;
                         dbContext.Locations.Add(dbLocation);
                         dbContext.SaveChanges();
                     }
-
+                    this.Hide();
                     this.ClearFields();
                 }
-                prWait.IsActive = false;
+
             }
             catch (Exception ex)
             {
@@ -64,5 +69,6 @@ namespace FishingLocationGPS.UserControls
             Latitude.Text = String.Empty;
             Notes.Text = String.Empty;
         }
+
     }
 }

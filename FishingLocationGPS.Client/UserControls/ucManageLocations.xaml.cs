@@ -1,4 +1,5 @@
 ﻿using FishingLocationGPS.Client;
+using FishingLocationGPS.Client.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,17 +26,30 @@ namespace FishingLocationGPS.UserControls
         public ucManageLocations()
         {
             this.InitializeComponent();
+            var parentType = this.Parent.GetType();
+            //var parent = (parentType)This.Parent;
+
             this.LoadListData();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            //if (txtName.Text != String.Empty)
+            //{
+            //    using (var dbContext = new DbAppContext())
+            //    {
+            //        FishingLocations = dbContext.Locations
+            //            .Where(item => item.Name.Contains(txtName.Text))
+            //            .OrderBy(item => item.LocationId).ToList();
+            //    }
 
+            //    grdLocations.ItemsSource = FishingLocations;
+            //}
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            LoadListData();
         }
 
 
@@ -53,19 +67,18 @@ namespace FishingLocationGPS.UserControls
 
         private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new ContentDialog()
-            {
-                Title = "Add Location",
-                Content = new AddLocation(),
-            };
-
+            var dialog = new Dialogs.cdAddLocation();
             await dialog.ShowAsync();
+            LoadListData();
+        }
 
+        private void grdLocations_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //grdLocations.Width =
+            ////var innerVariableSizedWrapGrid = PageHelper.GetLogicalChildCollection<VariableSizedWrapGrid>(((GridView)grdLocations)).First();
 
-
-
-            if (popAdd.IsOpen) { popAdd.IsOpen = false; }
-            else { popAdd.IsOpen = true; }
+            ////if (innerVariableSizedWrapGrid != null)
+            ////    innerVariableSizedWrapGrid.Height = ((GridView)grdLocations).ActualHeight;
         }
     }
 }

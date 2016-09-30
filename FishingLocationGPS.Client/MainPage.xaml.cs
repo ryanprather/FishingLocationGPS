@@ -23,7 +23,6 @@ namespace FishingLocationGPS
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private UserControls.AddLocation ucAddLocation;
         //private UserControls.ViewLocation ucViewLocation;
         private UserControls.SearchLocation ucSearchLocation;
         private UserControls.ucManageLocations ucManageLocations;
@@ -49,11 +48,6 @@ namespace FishingLocationGPS
             }
             switch (name)
             {
-                case "ADD":
-                    if (ucAddLocation == null) ucAddLocation = new UserControls.AddLocation();
-                    control_display.Children.Add(ucAddLocation);
-                    break;
-
                 case "MANAGE":
                     ucManageLocations = new UserControls.ucManageLocations();
                     control_display.Children.Add(ucManageLocations);
