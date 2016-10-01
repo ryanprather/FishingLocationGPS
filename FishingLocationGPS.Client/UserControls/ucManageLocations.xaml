@@ -20,7 +20,7 @@
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnEdit" Width="70" Height="40" Margin="0,0,10,0">
+            <Button x:Name="btnEdit" Width="70" Height="40" Margin="0,0,10,0" Click="btnEdit_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;"></TextBlock>
                     <TextBlock Text="Edit"></TextBlock>
@@ -40,12 +40,11 @@
             </Button>
         </StackPanel>
 
-        <GridView Name="grdLocations" Grid.Row="1" Background="BlanchedAlmond" MaxWidth="1300" MinWidth="400" Margin="30"
+        <GridView Name="grdLocations" Grid.Row="1" Background="Transparent" MaxWidth="1400" MinWidth="400" Margin="30,30,30,30"
             ScrollViewer.HorizontalScrollBarVisibility="Visible"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
             ScrollViewer.HorizontalScrollMode="Enabled"
-            ScrollViewer.VerticalScrollMode="Enabled"
-            SizeChanged="grdLocations_SizeChanged">
+            ScrollViewer.VerticalScrollMode="Enabled">
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsWrapGrid Orientation="Horizontal"></ItemsWrapGrid>

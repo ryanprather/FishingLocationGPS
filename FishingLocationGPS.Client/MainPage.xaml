@@ -43,13 +43,7 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
-                    <Canvas CanDrag="True">
-                        <StackPanel Name ="control_display" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,20,0,0" >
-
-                        </StackPanel>
-                    </Canvas>
-                </Grid>
+                <StackPanel Name ="control_display" Orientation="Horizontal" Margin="0,20,0,0" />
             </SplitView.Content>
         </SplitView>
     </Grid>

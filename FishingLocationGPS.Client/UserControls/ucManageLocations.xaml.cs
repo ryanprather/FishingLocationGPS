@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,9 +27,6 @@ namespace FishingLocationGPS.UserControls
         public ucManageLocations()
         {
             this.InitializeComponent();
-            var parentType = this.Parent.GetType();
-            //var parent = (parentType)This.Parent;
-
             this.LoadListData();
         }
 
@@ -72,13 +70,20 @@ namespace FishingLocationGPS.UserControls
             LoadListData();
         }
 
-        private void grdLocations_SizeChanged(object sender, SizeChangedEventArgs e)
+        private async void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            //grdLocations.Width =
-            ////var innerVariableSizedWrapGrid = PageHelper.GetLogicalChildCollection<VariableSizedWrapGrid>(((GridView)grdLocations)).First();
-
-            ////if (innerVariableSizedWrapGrid != null)
-            ////    innerVariableSizedWrapGrid.Height = ((GridView)grdLocations).ActualHeight;
+            var selectedItem = (Models.DbModels.FishingLocation)grdLocations.SelectedItem;
+            if (selectedItem != null)
+            {
+                var dialog = new Dialogs.cdEditLocation(selectedItem);
+                await dialog.ShowAsync();
+                LoadListData();
+            }
+            else
+            {
+                var dailog = new MessageDialog("Please select a location to edit.");
+                await dailog.ShowAsync();
+            }
         }
     }
 }
