@@ -25,7 +25,7 @@ namespace FishingLocationGPS.Dialogs
         private DataIO dataIO = new DataIO();
         private Models.DbModels.FishingLocation FishingLocation;
 
-        public cdEditLocation( Models.DbModels.FishingLocation location)
+        public cdEditLocation(Models.DbModels.FishingLocation location)
         {
             this.InitializeComponent();
             FishingLocation = location;
@@ -47,11 +47,17 @@ namespace FishingLocationGPS.Dialogs
                 if (isValid)
                 {
                     var dbLocation = dataIO.ConvertViewModel(location);
-                    dbLocation.LocationId = FishingLocation.LocationId;
                     using (var dbContext = new DbAppContext())
                     {
-                        //dbContext.Locations.
-                        dbContext.SaveChanges();
+                        var editItem = dbContext.Locations.First(item => item.LocationId == FishingLocation.LocationId);
+                        if (editItem != null)
+                        {
+                            editItem.Name = dbLocation.Name;
+                            editItem.Latitude = dbLocation.Latitude;
+                            editItem.Longitude = dbLocation.Longitude;
+                            editItem.Notes = dbLocation.Notes;
+                            dbContext.SaveChanges();
+                        }
                     }
                     this.Hide();
                     this.ClearFields();

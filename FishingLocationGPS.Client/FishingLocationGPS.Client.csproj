@@ -101,6 +101,9 @@
     <Compile Include="Dialogs\cdAddLocation.xaml.cs">
       <DependentUpon>cdAddLocation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\cdDeleteLocation.xaml.cs">
+      <DependentUpon>cdDeleteLocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\cdEditLocation.xaml.cs">
       <DependentUpon>cdEditLocation.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Dialogs\cdAddLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\cdDeleteLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

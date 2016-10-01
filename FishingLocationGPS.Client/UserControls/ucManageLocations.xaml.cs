@@ -85,5 +85,21 @@ namespace FishingLocationGPS.UserControls
                 await dailog.ShowAsync();
             }
         }
+
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = (Models.DbModels.FishingLocation)grdLocations.SelectedItem;
+            if (selectedItem != null)
+            {
+                var dialog = new Dialogs.cdDeleteLocation(selectedItem);
+                await dialog.ShowAsync();
+                LoadListData();
+            }
+            else
+            {
+                var dailog = new MessageDialog("Please select a location to delete.");
+                await dailog.ShowAsync();
+            }
+        }
     }
 }

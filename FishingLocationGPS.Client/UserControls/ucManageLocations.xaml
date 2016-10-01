@@ -26,7 +26,7 @@
                     <TextBlock Text="Edit"></TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnDelete" Width="90" Height="40" Margin="0,0,10,0">
+            <Button x:Name="btnDelete" Width="90" Height="40" Margin="0,0,10,0" Click="btnDelete_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
                     <TextBlock Text="Delete"></TextBlock>
