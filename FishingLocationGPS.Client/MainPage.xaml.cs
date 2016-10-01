@@ -54,8 +54,8 @@ namespace FishingLocationGPS
                     break;
 
                 case "SEARCH":
-                    if (ucSearchLocation == null) ucSearchLocation = new UserControls.SearchLocation();
-                    control_display.Children.Add(ucSearchLocation);
+                    //if (ucSearchLocation == null) ucSearchLocation = new UserControls.SearchLocation();
+                    //control_display.Children.Add(ucSearchLocation);
                     break;
             }
         }

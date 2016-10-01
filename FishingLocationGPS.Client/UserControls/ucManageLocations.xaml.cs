@@ -32,17 +32,17 @@ namespace FishingLocationGPS.UserControls
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            //if (txtName.Text != String.Empty)
-            //{
-            //    using (var dbContext = new DbAppContext())
-            //    {
-            //        FishingLocations = dbContext.Locations
-            //            .Where(item => item.Name.Contains(txtName.Text))
-            //            .OrderBy(item => item.LocationId).ToList();
-            //    }
+            if (txtName.Text != String.Empty)
+            {
+                using (var dbContext = new DbAppContext())
+                {
+                    FishingLocations = dbContext.Locations
+                        .Where(item => item.Name.Contains(txtName.Text))
+                        .OrderBy(item => item.LocationId).ToList();
+                }
 
-            //    grdLocations.ItemsSource = FishingLocations;
-            //}
+                grdLocations.ItemsSource = FishingLocations;
+            }
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
