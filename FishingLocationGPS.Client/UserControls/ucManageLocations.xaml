@@ -73,9 +73,9 @@
 
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="20">
+                    <StackPanel Orientation="Horizontal" Margin="20" Background="WhiteSmoke">
                         <Image Height="90" Width="90" Source="../Assets/gpsIcon.png"></Image>
-                        <StackPanel Background="WhiteSmoke" Height="90" Width="250" Orientation="Vertical">
+                        <StackPanel Background="Transparent" Height="90" Width="250" Orientation="Vertical">
                             <StackPanel Orientation="Horizontal" Margin="0,0,10,10">
                                 <TextBlock Text ="Name:" FontSize="18" Width="70" FontWeight="Bold" VerticalAlignment="Center" />
                                 <TextBlock Text ="{Binding Name}" FontSize="18" VerticalAlignment="Center" />

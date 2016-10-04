@@ -43,7 +43,7 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid Name ="control_display" Margin="20"/>
+                <Grid Name ="control_display" Margin="0"/>
             </SplitView.Content>
         </SplitView>
     </Grid>

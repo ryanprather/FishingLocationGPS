@@ -24,7 +24,7 @@ namespace FishingLocationGPS
     public sealed partial class MainPage : Page
     {
         //private UserControls.ViewLocation ucViewLocation;
-        private UserControls.SearchLocation ucSearchLocation;
+        private UserControls.ucMapLocations ucMapLocations;
         private UserControls.ucManageLocations ucManageLocations;
 
         public MainPage()
@@ -53,9 +53,9 @@ namespace FishingLocationGPS
                     control_display.Children.Add(ucManageLocations);
                     break;
 
-                case "SEARCH":
-                    //if (ucSearchLocation == null) ucSearchLocation = new UserControls.SearchLocation();
-                    //control_display.Children.Add(ucSearchLocation);
+                case "VIEW":
+                    ucMapLocations = new UserControls.ucMapLocations();
+                    control_display.Children.Add(ucMapLocations);
                     break;
             }
         }

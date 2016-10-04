@@ -107,6 +107,7 @@
     <Compile Include="Dialogs\cdEditLocation.xaml.cs">
       <DependentUpon>cdEditLocation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\PageHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -117,6 +118,9 @@
     </Compile>
     <Compile Include="UserControls\ucManageLocations.xaml.cs">
       <DependentUpon>ucManageLocations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMapLocations.xaml.cs">
+      <DependentUpon>ucMapLocations.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ucManageLocations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucMapLocations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,48 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FishingLocationGPS.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="FishingLocationGPS.UserControls.ucMapLocations"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lvLocations" Margin="0" Grid.Column="0" SelectionMode="Multiple">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="20">
+                        <Image Height="60" Width="60" Source="../Assets/gpsIcon.png"/>
+                        <StackPanel Background="Transparent" Height="60" Width="250" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,10,10">
+                                <TextBlock Text ="Name:" FontSize="18" Width="70" FontWeight="Bold" VerticalAlignment="Center" />
+                                <TextBlock Text ="{Binding Name}" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" >
+            <Button x:Name="btnClear" Content="Clear" Click="btnClear_Click" 
+                    Width="100" Height="30" Margin="0,0,10,0"/>
+
+            <Button x:Name="btnView" Content="View" Click="btnView_Click"
+                    Width="100" Height="30" />
+        </StackPanel>
+
+        <Maps:MapControl Name="mcViewLocations" Grid.Column="1" Grid.RowSpan="2" Margin="0"/>
+
+    </Grid>
+</UserControl>
