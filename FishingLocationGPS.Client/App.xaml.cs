@@ -23,6 +23,7 @@ namespace FishingLocationGPS {
     /// </summary>
     sealed partial class App : Application
     {
+        DataIO dataIO = new DataIO();
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -34,9 +35,11 @@ namespace FishingLocationGPS {
 
             using (var db = new DbAppContext())
             {
-                db.Database.EnsureCreated();
+                //db.Database.Migrate();
+                //db.Database.EnsureCreated();
                 //db.Database.Migrate();
             }
+            dataIO.MirgrateDB();
         }
 
         /// <summary>

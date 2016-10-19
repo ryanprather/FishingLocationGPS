@@ -29,13 +29,53 @@ namespace FishingLocationGPS.Dialogs
             this.InitializeComponent();
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        //private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        //{
+        //    this.Hide();
+        //}
+
+
+        //private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        //{
+        //    try
+        //    {
+        //        var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
+        //        var isValid = await PageHelper.ValidateObject(location);
+        //        if (isValid)
+        //        {
+        //            var dbLocation = dataIO.ConvertViewModel(location);
+        //            using (var dbContext = new DbAppContext())
+        //            {
+        //                var dbddLocation = dbContext.Database;
+        //                dbContext.Locations.Add(dbLocation);
+        //                dbContext.SaveChanges();
+        //            }
+        //            this.Hide();
+        //            this.ClearFields();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        var dailog = new MessageDialog(ex.Message);
+        //        await dailog.ShowAsync();
+        //    }
+        //}
+
+        private void ClearFields()
+        {
+            Name.Text = String.Empty;
+            Longitude.Text = String.Empty;
+            Latitude.Text = String.Empty;
+            Notes.Text = String.Empty;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
         }
 
-
-        private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -46,7 +86,6 @@ namespace FishingLocationGPS.Dialogs
                     var dbLocation = dataIO.ConvertViewModel(location);
                     using (var dbContext = new DbAppContext())
                     {
-                        var dbddLocation = dbContext.Database;
                         dbContext.Locations.Add(dbLocation);
                         dbContext.SaveChanges();
                     }
@@ -61,14 +100,5 @@ namespace FishingLocationGPS.Dialogs
                 await dailog.ShowAsync();
             }
         }
-
-        private void ClearFields()
-        {
-            Name.Text = String.Empty;
-            Longitude.Text = String.Empty;
-            Latitude.Text = String.Empty;
-            Notes.Text = String.Empty;
-        }
-
     }
 }

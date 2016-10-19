@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -37,7 +38,7 @@ namespace FishingLocationGPS
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
-        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var clickedPanel = (StackPanel)sender;
             var name = clickedPanel.Name.ToUpper();
@@ -46,18 +47,76 @@ namespace FishingLocationGPS
             {
                 control_display.Children.Remove(control);
             }
-            switch (name)
-            {
-                case "MANAGE":
-                    ucManageLocations = new UserControls.ucManageLocations();
-                    control_display.Children.Add(ucManageLocations);
-                    break;
 
-                case "VIEW":
-                    ucMapLocations = new UserControls.ucMapLocations();
-                    control_display.Children.Add(ucMapLocations);
-                    break;
+            
+            try
+            {
+                prLoading.IsActive = true;
+                prLoading.Visibility = Visibility.Visible;
+
+                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () => 
+                {
+                    
+                    switch (name)
+                    {
+                        case "MANAGE":
+                            ucManageLocations = new UserControls.ucManageLocations();
+                            control_display.Children.Add(ucManageLocations);
+                            break;
+
+                        case "VIEW":
+                            ucMapLocations = new UserControls.ucMapLocations();
+                            control_display.Children.Add(ucMapLocations);
+                            break;
+                    }
+                    await Task.Delay(3000);
+                }); 
+                //await SetUserControl(name);
+
+                ////switch (name)
+                ////{
+                ////    case "MANAGE":
+                ////        ucManageLocations = new UserControls.ucManageLocations();
+                ////        control_display.Children.Add(ucManageLocations);
+                ////        break;
+
+                ////    case "VIEW":
+                ////        ucMapLocations = new UserControls.ucMapLocations();
+                ////        control_display.Children.Add(ucMapLocations);
+                ////        break;
+                ////}
             }
+            finally
+            {
+                prLoading.IsActive = false;
+                prLoading.Visibility = Visibility.Collapsed;
+            }
+
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private 
+
+        //private async Task SetUserControl(string name)
+        //{
+        //    prLoading.IsActive = true;
+        //    prLoading.Visibility = Visibility.Visible;
+        //    switch (name)
+        //    {
+        //        case "MANAGE":
+        //            ucManageLocations = new UserControls.ucManageLocations();
+        //            control_display.Children.Add(ucManageLocations);
+        //            break;
+
+        //        case "VIEW":
+        //            ucMapLocations = new UserControls.ucMapLocations();
+        //            control_display.Children.Add(ucMapLocations);
+        //            break;
+        //    }
+        //}
     }
 }

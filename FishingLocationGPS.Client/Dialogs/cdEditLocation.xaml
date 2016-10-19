@@ -6,11 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="Edit Location"
-    PrimaryButtonText="Close"
-    SecondaryButtonText="Save"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    Title="Edit Location">
 
     <Grid x:Name="Grid_AddLocation" Background="Transparent">
         <Grid.ColumnDefinitions>
@@ -25,6 +21,7 @@
             <RowDefinition Height="40.4"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="100.4"/>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Name:" Grid.Column="0" Height="30" Grid.Row="0" HorizontalAlignment="Left" Margin="0,5" />
@@ -39,5 +36,25 @@
         <TextBlock Text="Notes:" Height="30" Grid.Column="0" Grid.Row="3" Margin="0,10,0,60.8" HorizontalAlignment="Left" />
         <TextBox x:Name="Notes" Grid.Column="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top"  
     		Height="82" Margin="0,14,0,4.8" Grid.Row="3" Width="224"/>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnClose" Grid.Column="0" Width="150" Height="40" Margin="0" Click="btnClose_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
+                    <TextBlock Text="Close"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnSave" Grid.Column="1" Width="150" Height="40" Margin="0" Click="btnSave_Click"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;"></TextBlock>
+                    <TextBlock Text="Save"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
     </Grid>
 </ContentDialog>

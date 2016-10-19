@@ -101,5 +101,10 @@ namespace FishingLocationGPS.UserControls
                 await dailog.ShowAsync();
             }
         }
+
+        private void btnSearchOpen_Click(object sender, RoutedEventArgs e)
+        {
+            svSearch.IsPaneOpen = !svSearch.IsPaneOpen;
+        }
     }
 }

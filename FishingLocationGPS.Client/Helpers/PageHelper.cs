@@ -41,7 +41,6 @@ namespace FishingLocationGPS.Client.Helpers
         {
             List<Button> buttons = GetLogicalChildCollection<Button>(currentPage);
             List<TextBox> textBoxes = GetLogicalChildCollection<TextBox>(currentPage);
-
         }
 
         public static TResult GetObject<TResult>(Grid currentGrid) where TResult : class, new()

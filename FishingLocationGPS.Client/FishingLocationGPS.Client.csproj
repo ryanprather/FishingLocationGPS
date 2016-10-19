@@ -116,6 +116,9 @@
     <Compile Include="UserControls\SearchLocation.xaml.cs">
       <DependentUpon>SearchLocation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucDashBoard.xaml.cs">
+      <DependentUpon>ucDashBoard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucManageLocations.xaml.cs">
       <DependentUpon>ucManageLocations.xaml</DependentUpon>
     </Compile>
@@ -130,7 +133,14 @@
     <None Include="FishingLocationGPS_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\FLGPSicontray88.png" />
+    <Content Include="Assets\FLGPSicontray88.scale-100.png" />
+    <Content Include="Assets\FLGPSicontray88.scale-200.png" />
+    <Content Include="Assets\FLGPSicontray88.scale-400.png" />
+    <Content Include="Assets\FLGPSSquare150x150.png" />
+    <Content Include="Assets\FLGPSWide310x150.png" />
     <Content Include="Assets\gpsIcon.png" />
+    <Content Include="Assets\icontray.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -162,6 +172,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\SearchLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucDashBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
