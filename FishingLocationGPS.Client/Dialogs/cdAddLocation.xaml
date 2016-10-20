@@ -8,13 +8,16 @@
     mc:Ignorable="d"
     Title="Add Location">
 
-
-    <Grid x:Name="Grid_AddLocation" Background="Transparent">
-        <Grid.ColumnDefinitions>
+    <Grid x:Name="Grid_AddLocation" Background="Transparent" Margin="0,15,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="117*"/>
-            <ColumnDefinition Width="34"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40.4"/>
@@ -23,9 +26,31 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="100.4"/>
             <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <TextBlock Text="Name:" Grid.Column="0" Height="30" Grid.Row="0" HorizontalAlignment="Left" Margin="0,5" />
+        </Grid.RowDefinitions>-->
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <TextBlock Text ="Name:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="Name" Width="300" PlaceholderText="insert name..." Height="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Latitude:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="Latitude" Width="300" PlaceholderText="insert lat..." Height="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Longitude:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="Longitude" Width="300" PlaceholderText="insert long..." Height="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Water Depth:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="WaterDepth" Width="300" PlaceholderText="insert water depth..." Height="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Notes:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="Notes" Width="300" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" PlaceholderText="insert notes..." Height="300"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        
+        <!--<TextBlock Text="Name:" Grid.Column="0" Height="30" Grid.Row="0" HorizontalAlignment="Left" Margin="0,5" />
         <TextBox x:Name="Name" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" />
 
         <TextBlock Text="Latitude:" Grid.Column="0" Height="30" Grid.Row="1" HorizontalAlignment="Left" Margin="0,5" />
@@ -36,8 +61,8 @@
 
         <TextBlock Text="Notes:" Height="30" Grid.Column="0" Grid.Row="3" Margin="0,10,0,60.8" HorizontalAlignment="Left" />
         <TextBox x:Name="Notes" Grid.Column="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top"  
-    		Height="82" Margin="0,14,0,4.8" Grid.Row="3" Width="224"/>
-        <Grid Grid.Row="4" Grid.ColumnSpan="4">
+    		Height="82" Margin="0,14,0,4.8" Grid.Row="3" Width="224"/>-->
+        <Grid Grid.Row="1" Margin="0,15,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>

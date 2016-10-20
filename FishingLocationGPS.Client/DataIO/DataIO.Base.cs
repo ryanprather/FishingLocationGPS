@@ -37,6 +37,25 @@ namespace FishingLocationGPS.Client
             return location;
         }
 
+        public Models.DbModels.PersonalGPSLocation ValidateGPSCoordinates(Models.DbModels.PersonalGPSLocation location)
+        {
+            try
+            {
+                BasicGeoposition position = new BasicGeoposition();
+                position.Latitude = Double.Parse(location.Latitude.ToString());
+                position.Longitude = Double.Parse(location.Longitude.ToString());
+                Geopoint gpsPoint = new Geopoint(position);
+                location.Latitude = (decimal)position.Latitude;
+                location.Longitude = (decimal)position.Longitude;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Invalid gps coordantes");
+            }
+
+            return location;
+        }
+
         public void MirgrateDB()
         {
             using (var db = new DbAppContext())

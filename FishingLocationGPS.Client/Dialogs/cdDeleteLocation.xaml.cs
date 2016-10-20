@@ -22,13 +22,13 @@ namespace FishingLocationGPS.Dialogs
     {
 
         private DataIO dataIO = new DataIO();
-        private Models.DbModels.FishingLocation FishingLocation;
+        private Models.DbModels.PersonalGPSLocation Location;
 
-        public cdDeleteLocation(Models.DbModels.FishingLocation location)
+        public cdDeleteLocation(Models.DbModels.PersonalGPSLocation location)
         {
             this.InitializeComponent();
-            FishingLocation = location;
-            tbDeleteMessage.Text = "Are you sure you would like to Delete " + FishingLocation.Name + " ?";
+            Location = location;
+            tbDeleteMessage.Text = "Are you sure you would like to Delete " + Location.Name + " ?";
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -41,10 +41,10 @@ namespace FishingLocationGPS.Dialogs
         {
             using (var dbContext = new DbAppContext())
             {
-                var deleteItem = dbContext.Locations.First(item => item.LocationId == FishingLocation.LocationId);
+                var deleteItem = dbContext.PersonalGPSLocations.First(item => item.PersonalGPSLocationID == Location.PersonalGPSLocationID);
                 if (deleteItem != null)
                 {
-                    dbContext.Locations.Remove(deleteItem);
+                    dbContext.PersonalGPSLocations.Remove(deleteItem);
                     dbContext.SaveChanges();
                 }
             }

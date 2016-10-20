@@ -13,18 +13,23 @@ namespace FishingLocationGPS.Client
 {
     public class DbAppContext: DbContext
     {
-        public DbSet<Models.DbModels.FishingLocation> Locations { get; set; }
+        public DbSet<Models.DbModels.PersonalGPSLocation> PersonalGPSLocations { get; set; }
+        public DbSet<Models.DbModels.MonitoredNOAALocation> MonitoredNOAALocations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("DataSource="+ Path.Combine(ApplicationData.Current.LocalFolder.Path, "FishingAppData.db"));
+            optionsBuilder.UseSqlite("DataSource="+ Path.Combine(ApplicationData.Current.LocalFolder.Path, "PersonalGPSAppDatabase.db"));
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Models.DbModels.FishingLocation>()
-                            .HasKey(item => item.LocationId)
-                            .HasName("LocationId");    
+            modelBuilder.Entity<Models.DbModels.PersonalGPSLocation>()
+                            .HasKey(item => item.PersonalGPSLocationID)
+                            .HasName("PersonalGPSLocationID");
+
+            modelBuilder.Entity<Models.DbModels.MonitoredNOAALocation>()
+                            .HasKey(item => item.MonitoredNOAALocationID)
+                            .HasName("MonitoredNOAALocationID");
         }
         
     }

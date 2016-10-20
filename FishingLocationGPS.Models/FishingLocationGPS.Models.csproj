@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbModels\FishingLocation.cs" />
+    <Compile Include="DbModels\MonitoredNOAALocation.cs" />
+    <Compile Include="DbModels\PersonalGPSLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Location.cs" />
     <EmbeddedResource Include="Properties\FishingLocationGPS.Models.rd.xml" />

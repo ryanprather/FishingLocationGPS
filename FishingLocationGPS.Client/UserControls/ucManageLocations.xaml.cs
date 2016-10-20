@@ -22,7 +22,7 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucManageLocations : UserControl
     {
-        private List<Models.DbModels.FishingLocation> FishingLocations { get; set; }
+        private List<Models.DbModels.PersonalGPSLocation> Locations { get; set; }
 
         public ucManageLocations()
         {
@@ -36,12 +36,12 @@ namespace FishingLocationGPS.UserControls
             {
                 using (var dbContext = new DbAppContext())
                 {
-                    FishingLocations = dbContext.Locations
+                    Locations = dbContext.PersonalGPSLocations
                         .Where(item => item.Name.Contains(txtName.Text))
-                        .OrderBy(item => item.LocationId).ToList();
+                        .OrderBy(item => item.PersonalGPSLocationID).ToList();
                 }
 
-                grdLocations.ItemsSource = FishingLocations;
+                grdLocations.ItemsSource = Locations;
             }
         }
 
@@ -50,17 +50,16 @@ namespace FishingLocationGPS.UserControls
             LoadListData();
         }
 
-
         private void LoadListData()
         {
             using (var dbContext = new DbAppContext())
             {
-                FishingLocations = dbContext.Locations
+                Locations = dbContext.PersonalGPSLocations
                     .Where(item => item.Name != String.Empty)
-                    .OrderBy(item => item.LocationId).ToList();
+                    .OrderBy(item => item.PersonalGPSLocationID).ToList();
             }
 
-            grdLocations.ItemsSource = FishingLocations;
+            grdLocations.ItemsSource = Locations;
         }
 
         private async void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -72,7 +71,7 @@ namespace FishingLocationGPS.UserControls
 
         private async void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Models.DbModels.FishingLocation)grdLocations.SelectedItem;
+            var selectedItem = (Models.DbModels.PersonalGPSLocation)grdLocations.SelectedItem;
             if (selectedItem != null)
             {
                 var dialog = new Dialogs.cdEditLocation(selectedItem);
@@ -88,7 +87,7 @@ namespace FishingLocationGPS.UserControls
 
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Models.DbModels.FishingLocation)grdLocations.SelectedItem;
+            var selectedItem = (Models.DbModels.PersonalGPSLocation)grdLocations.SelectedItem;
             if (selectedItem != null)
             {
                 var dialog = new Dialogs.cdDeleteLocation(selectedItem);
@@ -105,6 +104,17 @@ namespace FishingLocationGPS.UserControls
         private void btnSearchOpen_Click(object sender, RoutedEventArgs e)
         {
             svSearch.IsPaneOpen = !svSearch.IsPaneOpen;
+        }
+
+        private void btnOrderByCreated_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        private void btnOrderByName_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

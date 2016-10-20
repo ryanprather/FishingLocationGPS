@@ -29,45 +29,13 @@ namespace FishingLocationGPS.Dialogs
             this.InitializeComponent();
         }
 
-        //private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        //{
-        //    this.Hide();
-        //}
-
-
-        //private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        //{
-        //    try
-        //    {
-        //        var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
-        //        var isValid = await PageHelper.ValidateObject(location);
-        //        if (isValid)
-        //        {
-        //            var dbLocation = dataIO.ConvertViewModel(location);
-        //            using (var dbContext = new DbAppContext())
-        //            {
-        //                var dbddLocation = dbContext.Database;
-        //                dbContext.Locations.Add(dbLocation);
-        //                dbContext.SaveChanges();
-        //            }
-        //            this.Hide();
-        //            this.ClearFields();
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var dailog = new MessageDialog(ex.Message);
-        //        await dailog.ShowAsync();
-        //    }
-        //}
-
         private void ClearFields()
         {
             Name.Text = String.Empty;
             Longitude.Text = String.Empty;
             Latitude.Text = String.Empty;
             Notes.Text = String.Empty;
+            WaterDepth.Text = String.Empty;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -79,20 +47,21 @@ namespace FishingLocationGPS.Dialogs
         {
             try
             {
-                var location = PageHelper.GetObject<Models.ViewModels.Location>(Grid_AddLocation);
+                if (WaterDepth.Text == String.Empty) WaterDepth.Text = "0";
+                var location = PageHelper.GetObject<Models.DbModels.PersonalGPSLocation>(Grid_AddLocation);
                 var isValid = await PageHelper.ValidateObject(location);
+                location = dataIO.ValidateGPSCoordinates(location);
                 if (isValid)
                 {
-                    var dbLocation = dataIO.ConvertViewModel(location);
+                    location.CreatedDate = DateTime.Now;
                     using (var dbContext = new DbAppContext())
                     {
-                        dbContext.Locations.Add(dbLocation);
+                        dbContext.PersonalGPSLocations.Add(location);
                         dbContext.SaveChanges();
                     }
                     this.Hide();
                     this.ClearFields();
                 }
-
             }
             catch (Exception ex)
             {

@@ -23,7 +23,7 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucMapLocations : UserControl
     {
-        private List<Models.DbModels.FishingLocation> FishingLocations { get; set; }
+        private List<Models.DbModels.PersonalGPSLocation> Locations { get; set; }
 
         public ucMapLocations()
         {
@@ -37,11 +37,11 @@ namespace FishingLocationGPS.UserControls
 
             using (var dbContext = new DbAppContext())
             {
-                FishingLocations = dbContext.Locations
+                Locations = dbContext.PersonalGPSLocations
                     .Where(item => item.Name != String.Empty)
-                    .OrderBy(item => item.LocationId).ToList();
+                    .OrderBy(item => item.PersonalGPSLocationID).ToList();
             }
-            lvLocations.ItemsSource = FishingLocations;
+            lvLocations.ItemsSource = Locations;
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace FishingLocationGPS.UserControls
 
             foreach (var item in lvLocations.SelectedItems)
             {
-                var location = (Models.DbModels.FishingLocation)item;
+                var location = (Models.DbModels.PersonalGPSLocation)item;
                 BasicGeoposition snPosition = new BasicGeoposition() { Latitude = (double)location.Latitude, Longitude = (double)location.Longitude };
                 Geopoint snPoint = new Geopoint(snPosition);
 
@@ -87,4 +87,4 @@ namespace FishingLocationGPS.UserControls
             lvLocations.SelectedItems.Clear();
         }
     }
-    }
+}
