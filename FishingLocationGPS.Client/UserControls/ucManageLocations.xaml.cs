@@ -28,6 +28,9 @@ namespace FishingLocationGPS.UserControls
         {
             this.InitializeComponent();
             this.LoadListData();
+            GridViewHelper.GridView_Sort.LoadSortTypes();
+            btnOrderByCreated_Icon.Text = GridViewHelper.GridView_Sort.SortTypes.First(item => item.Icon_Name == GridViewHelper.SortIconTypes.NONE.ToString()).Icon_Text;
+            btnOrderByName_Icon.Text = GridViewHelper.GridView_Sort.SortTypes.First(item => item.Icon_Name == GridViewHelper.SortIconTypes.NONE.ToString()).Icon_Text;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -40,7 +43,6 @@ namespace FishingLocationGPS.UserControls
                         .Where(item => item.Name.Contains(txtName.Text))
                         .OrderBy(item => item.PersonalGPSLocationID).ToList();
                 }
-
                 grdLocations.ItemsSource = Locations;
             }
         }
@@ -108,13 +110,41 @@ namespace FishingLocationGPS.UserControls
 
         private void btnOrderByCreated_Click(object sender, RoutedEventArgs e)
         {
-
-
+            List <TextBlock> textBlocks = PageHelper.GetLogicalChildCollection<TextBlock>(btnOrderByCreated);
+            var iconBlock = textBlocks.First(item => item.Name.Contains("Icon"));
+            var currentSortType = GridViewHelper.GridView_Sort.SortChanged(ref iconBlock, ref grdLocations);
+            switch (currentSortType)
+            {
+                case GridViewHelper.SortIconTypes.NONE:
+                    grdLocations.ItemsSource = Locations.OrderBy(item => item.PersonalGPSLocationID);
+                    break;
+                case GridViewHelper.SortIconTypes.ASCENDING:
+                    grdLocations.ItemsSource = Locations.OrderBy(item => item.CreatedDate);
+                    break;
+                case GridViewHelper.SortIconTypes.DESCENDING:
+                    grdLocations.ItemsSource = Locations.OrderByDescending(item => item.CreatedDate);
+                    break;
+            }
         }
 
         private void btnOrderByName_Click(object sender, RoutedEventArgs e)
         {
-
+            List<TextBlock> textBlocks = PageHelper.GetLogicalChildCollection<TextBlock>(btnOrderByName);
+            var iconBlock = textBlocks.First(item => item.Name.Contains("Icon"));
+            var currentSortType = GridViewHelper.GridView_Sort.SortChanged(ref iconBlock, ref grdLocations);
+            switch (currentSortType)
+            {
+                case GridViewHelper.SortIconTypes.NONE:
+                    grdLocations.ItemsSource = Locations.OrderBy(item => item.PersonalGPSLocationID);
+                    break;
+                case GridViewHelper.SortIconTypes.ASCENDING:
+                    grdLocations.ItemsSource = Locations.OrderBy(item => item.Name);
+                    break;
+                case GridViewHelper.SortIconTypes.DESCENDING:
+                    grdLocations.ItemsSource = Locations.OrderByDescending(item => item.Name);
+                    break;
+            }
         }
     }
 }
+ 

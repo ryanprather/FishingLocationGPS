@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F50BC5B9-88DA-4953-B492-3BD318FF369C}</ProjectGuid>
+    <ProjectGuid>{2689754E-A73A-4CF7-BC5B-17995F70F559}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FishingLocationGPS.Models</RootNamespace>
-    <AssemblyName>FishingLocationGPS.Models</AssemblyName>
+    <RootNamespace>GridViewHelper</RootNamespace>
+    <AssemblyName>GridViewHelper</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -107,11 +107,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbModels\FishingLocation.cs" />
-    <Compile Include="DbModels\MonitoredNOAALocation.cs" />
-    <Compile Include="DbModels\PersonalGPSLocation.cs" />
+    <Compile Include="GridView.Sort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\FishingLocationGPS.Models.rd.xml" />
+    <EmbeddedResource Include="Properties\GridViewHelper.rd.xml" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

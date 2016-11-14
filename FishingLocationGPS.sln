@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingLocationGPS.Client",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingLocationGPS.Models", "FishingLocationGPS.Models\FishingLocationGPS.Models.csproj", "{F50BC5B9-88DA-4953-B492-3BD318FF369C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridViewHelper", "GridViewHelper\GridViewHelper.csproj", "{2689754E-A73A-4CF7-BC5B-17995F70F559}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,22 @@ Global
 		{F50BC5B9-88DA-4953-B492-3BD318FF369C}.Release|x64.Build.0 = Release|x64
 		{F50BC5B9-88DA-4953-B492-3BD318FF369C}.Release|x86.ActiveCfg = Release|x86
 		{F50BC5B9-88DA-4953-B492-3BD318FF369C}.Release|x86.Build.0 = Release|x86
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|ARM.ActiveCfg = Debug|ARM
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|ARM.Build.0 = Debug|ARM
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|x64.ActiveCfg = Debug|x64
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|x64.Build.0 = Debug|x64
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|x86.ActiveCfg = Debug|x86
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Debug|x86.Build.0 = Debug|x86
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|ARM.ActiveCfg = Release|ARM
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|ARM.Build.0 = Release|ARM
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|x64.ActiveCfg = Release|x64
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|x64.Build.0 = Release|x64
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|x86.ActiveCfg = Release|x86
+		{2689754E-A73A-4CF7-BC5B-17995F70F559}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

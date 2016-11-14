@@ -12,30 +12,30 @@ namespace FishingLocationGPS.Client
     public class DataIO
     {
             
-        public Models.DbModels.FishingLocation ConvertViewModel(Models.ViewModels.Location viewModel)
-        {
-            var location = new Models.DbModels.FishingLocation()
-            {
-                Name = viewModel.Name,
-                Notes = viewModel.Notes
-            };
+        //public Models.DbModels.FishingLocation ConvertViewModel(Models.ViewModels.Location viewModel)
+        //{
+        //    var location = new Models.DbModels.FishingLocation()
+        //    {
+        //        Name = viewModel.Name,
+        //        Notes = viewModel.Notes
+        //    };
 
-            try
-            {
-                BasicGeoposition position = new BasicGeoposition();
-                position.Latitude = Double.Parse(viewModel.Latitude);
-                position.Longitude = Double.Parse(viewModel.Longitude);
-                Geopoint gpsPoint = new Geopoint(position);
-                location.Latitude = (decimal)position.Latitude;
-                location.Longitude = (decimal)position.Longitude;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Invalid gps Coordantes");
-            }
+        //    try
+        //    {
+        //        BasicGeoposition position = new BasicGeoposition();
+        //        position.Latitude = Double.Parse(viewModel.Latitude);
+        //        position.Longitude = Double.Parse(viewModel.Longitude);
+        //        Geopoint gpsPoint = new Geopoint(position);
+        //        location.Latitude = (decimal)position.Latitude;
+        //        location.Longitude = (decimal)position.Longitude;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Invalid gps Coordantes");
+        //    }
 
-            return location;
-        }
+        //    return location;
+        //}
 
         public Models.DbModels.PersonalGPSLocation ValidateGPSCoordinates(Models.DbModels.PersonalGPSLocation location)
         {

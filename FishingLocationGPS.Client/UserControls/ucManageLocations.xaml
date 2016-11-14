@@ -71,13 +71,13 @@
                             <TextBlock Text="Order By:" FontWeight="Bold" Foreground="#FF299FCC" Margin="0,0,12,0"></TextBlock>
                             <Button x:Name="btnOrderByCreated" Width="100" Height="30" Margin="0,0,10,0" Click="btnOrderByCreated_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" Margin="0,0,3,0"></TextBlock>
+                                    <TextBlock x:Name="btnOrderByCreated_Icon"  FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" Margin="0,0,3,0"></TextBlock>
                                     <TextBlock Text="Created"></TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="btnOrderByName" Width="100" Height="30" Margin="0,0,10,0" Click="btnOrderByName_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" Margin="0,0,3,0"></TextBlock>
+                                    <TextBlock x:Name="btnOrderByName_Icon" FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" Margin="0,0,3,0"></TextBlock>
                                     <TextBlock Text="Name"></TextBlock>
                                 </StackPanel>
                             </Button>

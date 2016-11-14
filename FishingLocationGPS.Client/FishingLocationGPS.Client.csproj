@@ -186,6 +186,10 @@
       <Project>{f50bc5b9-88da-4953-b492-3bd318ff369c}</Project>
       <Name>FishingLocationGPS.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GridViewHelper\GridViewHelper.csproj">
+      <Project>{2689754e-a73a-4cf7-bc5b-17995f70f559}</Project>
+      <Name>GridViewHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
