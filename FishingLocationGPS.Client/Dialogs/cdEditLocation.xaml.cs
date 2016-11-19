@@ -23,9 +23,9 @@ namespace FishingLocationGPS.Dialogs
     public sealed partial class cdEditLocation : ContentDialog
     {
         private DataIO dataIO = new DataIO();
-        private Models.DbModels.PersonalGPSLocation Location;
+        private Models.PersonalGPSLocation Location;
 
-        public cdEditLocation(Models.DbModels.PersonalGPSLocation location)
+        public cdEditLocation(Models.PersonalGPSLocation location)
         {
             this.InitializeComponent();
             Location = location;
@@ -61,7 +61,7 @@ namespace FishingLocationGPS.Dialogs
             try
             {
                 if (WaterDepth.Text == String.Empty) WaterDepth.Text = "0";
-                var location = PageHelper.GetObject<Models.DbModels.PersonalGPSLocation>(Grid_EditLocation);
+                var location = PageHelper.GetObject<Models.PersonalGPSLocation>(Grid_EditLocation);
                 var isValid = await PageHelper.ValidateObject(location);
                 location = dataIO.ValidateGPSCoordinates(location);
                 if (isValid)

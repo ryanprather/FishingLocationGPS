@@ -37,7 +37,7 @@ namespace FishingLocationGPS.Client
         //    return location;
         //}
 
-        public Models.DbModels.PersonalGPSLocation ValidateGPSCoordinates(Models.DbModels.PersonalGPSLocation location)
+        public Models.PersonalGPSLocation ValidateGPSCoordinates(Models.PersonalGPSLocation location)
         {
             try
             {

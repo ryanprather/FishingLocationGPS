@@ -112,12 +112,23 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20161116213800_MigrationInit.cs" />
+    <Compile Include="Migrations\20161116213800_MigrationInit.designer.cs">
+      <DependentUpon>20161116213800_MigrationInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DbAppContextModelSnapshot.cs" />
+    <Compile Include="Models\MonitoredNOAALocation.cs" />
+    <Compile Include="Models\PersonalGPSLocation.cs" />
+    <Compile Include="Models\PersonalGPSLocationNote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\ucDashBoard.xaml.cs">
       <DependentUpon>ucDashBoard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucManageLocations.xaml.cs">
       <DependentUpon>ucManageLocations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucManageNotes.xaml.cs">
+      <DependentUpon>ucManageNotes.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucMapLocations.xaml.cs">
       <DependentUpon>ucMapLocations.xaml</DependentUpon>
@@ -176,21 +187,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\ucManageNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\ucMapLocations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FishingLocationGPS.Models\FishingLocationGPS.Models.csproj">
-      <Project>{f50bc5b9-88da-4953-b492-3bd318ff369c}</Project>
-      <Name>FishingLocationGPS.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GridViewHelper\GridViewHelper.csproj">
       <Project>{2689754e-a73a-4cf7-bc5b-17995f70f559}</Project>
       <Name>GridViewHelper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -22,7 +22,7 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucManageLocations : UserControl
     {
-        private List<Models.DbModels.PersonalGPSLocation> Locations { get; set; }
+        private List<Models.PersonalGPSLocation> Locations { get; set; }
 
         public ucManageLocations()
         {
@@ -73,7 +73,7 @@ namespace FishingLocationGPS.UserControls
 
         private async void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Models.DbModels.PersonalGPSLocation)grdLocations.SelectedItem;
+            var selectedItem = (Models.PersonalGPSLocation)grdLocations.SelectedItem;
             if (selectedItem != null)
             {
                 var dialog = new Dialogs.cdEditLocation(selectedItem);
@@ -89,7 +89,7 @@ namespace FishingLocationGPS.UserControls
 
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Models.DbModels.PersonalGPSLocation)grdLocations.SelectedItem;
+            var selectedItem = (Models.PersonalGPSLocation)grdLocations.SelectedItem;
             if (selectedItem != null)
             {
                 var dialog = new Dialogs.cdDeleteLocation(selectedItem);

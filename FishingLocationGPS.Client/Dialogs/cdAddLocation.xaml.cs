@@ -48,7 +48,7 @@ namespace FishingLocationGPS.Dialogs
             try
             {
                 if (WaterDepth.Text == String.Empty) WaterDepth.Text = "0";
-                var location = PageHelper.GetObject<Models.DbModels.PersonalGPSLocation>(Grid_AddLocation);
+                var location = PageHelper.GetObject<Models.PersonalGPSLocation>(Grid_AddLocation);
                 var isValid = await PageHelper.ValidateObject(location);
                 location = dataIO.ValidateGPSCoordinates(location);
                 if (isValid)

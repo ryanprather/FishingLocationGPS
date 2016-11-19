@@ -22,9 +22,9 @@ namespace FishingLocationGPS.Dialogs
     {
 
         private DataIO dataIO = new DataIO();
-        private Models.DbModels.PersonalGPSLocation Location;
+        private Models.PersonalGPSLocation Location;
 
-        public cdDeleteLocation(Models.DbModels.PersonalGPSLocation location)
+        public cdDeleteLocation(Models.PersonalGPSLocation location)
         {
             this.InitializeComponent();
             Location = location;

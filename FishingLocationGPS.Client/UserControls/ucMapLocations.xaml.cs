@@ -23,7 +23,7 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucMapLocations : UserControl
     {
-        private List<Models.DbModels.PersonalGPSLocation> Locations { get; set; }
+        private List<Models.PersonalGPSLocation> Locations { get; set; }
 
         public ucMapLocations()
         {
@@ -54,7 +54,7 @@ namespace FishingLocationGPS.UserControls
 
             foreach (var item in lvLocations.SelectedItems)
             {
-                var location = (Models.DbModels.PersonalGPSLocation)item;
+                var location = (Models.PersonalGPSLocation)item;
                 BasicGeoposition snPosition = new BasicGeoposition() { Latitude = (double)location.Latitude, Longitude = (double)location.Longitude };
                 Geopoint snPoint = new Geopoint(snPosition);
 
