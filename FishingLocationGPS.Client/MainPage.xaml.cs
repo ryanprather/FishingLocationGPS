@@ -27,6 +27,8 @@ namespace FishingLocationGPS
         //private UserControls.ViewLocation ucViewLocation;
         private UserControls.ucMapLocations ucMapLocations;
         private UserControls.ucManageLocations ucManageLocations;
+        private UserControls.ucDashBoard ucDashboard;
+        private UserControls.ucManageNotes ucManageNotes;
 
         public MainPage()
         {
@@ -46,9 +48,7 @@ namespace FishingLocationGPS
             foreach (var control in controls)
             {
                 control_display.Children.Remove(control);
-            }
-
-            
+            }            
             try
             {
                 prLoading.IsActive = true;
@@ -59,7 +59,12 @@ namespace FishingLocationGPS
                     
                     switch (name)
                     {
-                        case "MANAGE":
+                        case "HOME":
+                            ucDashboard = new UserControls.ucDashBoard();
+                            control_display.Children.Add(ucDashboard);
+                            break;
+
+                        case "MANAGE_LOCATIONS":
                             ucManageLocations = new UserControls.ucManageLocations();
                             control_display.Children.Add(ucManageLocations);
                             break;
@@ -68,55 +73,27 @@ namespace FishingLocationGPS
                             ucMapLocations = new UserControls.ucMapLocations();
                             control_display.Children.Add(ucMapLocations);
                             break;
+
+                        case "MANAGE_NOTES":
+                            ucManageNotes = new UserControls.ucManageNotes();
+                            control_display.Children.Add(ucManageNotes);
+                            break;
                     }
                     await Task.Delay(3000);
                 }); 
-                //await SetUserControl(name);
-
-                ////switch (name)
-                ////{
-                ////    case "MANAGE":
-                ////        ucManageLocations = new UserControls.ucManageLocations();
-                ////        control_display.Children.Add(ucManageLocations);
-                ////        break;
-
-                ////    case "VIEW":
-                ////        ucMapLocations = new UserControls.ucMapLocations();
-                ////        control_display.Children.Add(ucMapLocations);
-                ////        break;
-                ////}
             }
             finally
             {
                 prLoading.IsActive = false;
                 prLoading.Visibility = Visibility.Collapsed;
             }
-
         }
+        
 
-        private void Home_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            ucDashboard = new UserControls.ucDashBoard();
+            control_display.Children.Add(ucDashboard);
         }
-
-        //private 
-
-        //private async Task SetUserControl(string name)
-        //{
-        //    prLoading.IsActive = true;
-        //    prLoading.Visibility = Visibility.Visible;
-        //    switch (name)
-        //    {
-        //        case "MANAGE":
-        //            ucManageLocations = new UserControls.ucManageLocations();
-        //            control_display.Children.Add(ucManageLocations);
-        //            break;
-
-        //        case "VIEW":
-        //            ucMapLocations = new UserControls.ucMapLocations();
-        //            control_display.Children.Add(ucMapLocations);
-        //            break;
-        //    }
-        //}
     }
 }

@@ -38,7 +38,7 @@ namespace FishingLocationGPS.Dialogs
             Longitude.Text = this.Location.Longitude.ToString();
             Latitude.Text = this.Location.Latitude.ToString();
             WaterDepth.Text = this.Location.WaterDepth.ToString();
-            Notes.Text = this.Location.Notes;
+            Description.Text = this.Location.Description;
         }
 
         private void ClearFields()
@@ -46,7 +46,7 @@ namespace FishingLocationGPS.Dialogs
             Name.Text = String.Empty;
             Longitude.Text = String.Empty;
             Latitude.Text = String.Empty;
-            Notes.Text = String.Empty;
+            Description.Text = String.Empty;
             WaterDepth.Text = String.Empty;
         }
 
@@ -74,7 +74,7 @@ namespace FishingLocationGPS.Dialogs
                             editItem.Name = location.Name;
                             editItem.Latitude = location.Latitude;
                             editItem.Longitude = location.Longitude;
-                            editItem.Notes = location.Notes;
+                            editItem.Description = location.Description;
                             editItem.WaterDepth = location.WaterDepth;
                             editItem.ModifiedDate = DateTime.Now;
                             dbContext.SaveChanges();

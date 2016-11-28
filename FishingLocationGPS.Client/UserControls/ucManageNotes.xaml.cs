@@ -23,5 +23,50 @@ namespace FishingLocationGPS.UserControls
         {
             this.InitializeComponent();
         }
+
+        private void btnView_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        private void btnSearchOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOrderByCreated_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOrderByName_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

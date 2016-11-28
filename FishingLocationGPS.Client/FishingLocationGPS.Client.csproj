@@ -107,14 +107,21 @@
     <Compile Include="Dialogs\cdEditLocation.xaml.cs">
       <DependentUpon>cdEditLocation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\cdViewLocation.xaml.cs">
+      <DependentUpon>cdViewLocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\PageHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20161116213800_MigrationInit.cs" />
-    <Compile Include="Migrations\20161116213800_MigrationInit.designer.cs">
-      <DependentUpon>20161116213800_MigrationInit.cs</DependentUpon>
+    <Compile Include="Migrations\20161121212319_MigrationNewDB.cs" />
+    <Compile Include="Migrations\20161121212319_MigrationNewDB.designer.cs">
+      <DependentUpon>20161121212319_MigrationNewDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20161121212455_MigrationNewDB_1.cs" />
+    <Compile Include="Migrations\20161121212455_MigrationNewDB_1.designer.cs">
+      <DependentUpon>20161121212455_MigrationNewDB_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DbAppContextModelSnapshot.cs" />
     <Compile Include="Models\MonitoredNOAALocation.cs" />
@@ -172,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\cdEditLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\cdViewLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

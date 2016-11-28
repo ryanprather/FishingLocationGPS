@@ -8,8 +8,8 @@ using FishingLocationGPS.Client;
 namespace FishingLocationGPS.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20161116213800_MigrationInit")]
-    partial class MigrationInit
+    [Migration("20161121212319_MigrationNewDB")]
+    partial class MigrationNewDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

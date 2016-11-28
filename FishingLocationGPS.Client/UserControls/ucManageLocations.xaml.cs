@@ -103,6 +103,22 @@ namespace FishingLocationGPS.UserControls
             }
         }
 
+        private async void btnView_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = (Models.PersonalGPSLocation)grdLocations.SelectedItem;
+            if (selectedItem != null)
+            {
+                var dialog = new Dialogs.cdViewLocation(selectedItem);
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                var dailog = new MessageDialog("Please select a location to view.");
+                await dailog.ShowAsync();
+            }
+        }
+
+
         private void btnSearchOpen_Click(object sender, RoutedEventArgs e)
         {
             svSearch.IsPaneOpen = !svSearch.IsPaneOpen;
@@ -145,6 +161,7 @@ namespace FishingLocationGPS.UserControls
                     break;
             }
         }
+        
     }
 }
  

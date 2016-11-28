@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingLocationGPS.Migrations
 {
-    public partial class MigrationInit : Migration
+    public partial class MigrationNewDB_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,13 +37,32 @@ namespace FishingLocationGPS.Migrations
                     Longitude = table.Column<decimal>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: false),
-                    Notes = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     WaterDepth = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersonalGPSLocations", x => x.PersonalGPSLocationID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "PersonalGPSLocationNote",
+                columns: table => new
+                {
+                    PersonalGPSLocationNoteID = table.Column<int>(nullable: false)
+                        .Annotation("Autoincrement", true),
+                    PersonalGPSLocationID = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    FishingDate = table.Column<DateTime>(nullable: true),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MonitoredNOAALocations", x => x.PersonalGPSLocationNoteID);
+                    table.ForeignKey("FK_PersonalGPSLocationID", x => x.PersonalGPSLocationID, "PersonalGPSLocations", "PersonalGPSLocationID");
+                });
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -53,6 +72,9 @@ namespace FishingLocationGPS.Migrations
 
             migrationBuilder.DropTable(
                 name: "PersonalGPSLocations");
+
+            migrationBuilder.DropTable(
+                name: "PersonalGPSLocationNote");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace FishingLocationGPS.Dialogs
             Name.Text = String.Empty;
             Longitude.Text = String.Empty;
             Latitude.Text = String.Empty;
-            Notes.Text = String.Empty;
+            Description.Text = String.Empty;
             WaterDepth.Text = String.Empty;
         }
 

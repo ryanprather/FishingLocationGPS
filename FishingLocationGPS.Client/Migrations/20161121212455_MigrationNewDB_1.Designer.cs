@@ -8,9 +8,10 @@ using FishingLocationGPS.Client;
 namespace FishingLocationGPS.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    partial class DbAppContextModelSnapshot : ModelSnapshot
+    [Migration("20161121212455_MigrationNewDB_1")]
+    partial class MigrationNewDB_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1");
@@ -54,7 +55,7 @@ namespace FishingLocationGPS.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Notes");
 
                     b.Property<int>("WaterDepth");
 
@@ -62,27 +63,6 @@ namespace FishingLocationGPS.Migrations
 
                     b.ToTable("PersonalGPSLocations");
                 });
-
-            modelBuilder.Entity("FishingLocationGPS.Models.PersonalGPSLocationNote", b =>
-            {
-                b.Property<int>("PersonalGPSLocationNoteID")
-                    .ValueGeneratedOnAdd();
-
-                b.Property<int>("PersonalGPSLocationID");
-                
-                b.Property<string>("Title")
-                .IsRequired();
-
-                b.Property<string>("Description");
-
-                b.Property<DateTime?>("FishingDate");
-
-                b.Property<DateTime?>("CreatedDate");
-                
-                b.HasKey("PersonalGPSLocationNoteID");
-
-                b.ToTable("PersonalGPSLocations");
-            });
         }
     }
 }
