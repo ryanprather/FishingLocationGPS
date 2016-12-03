@@ -17,7 +17,7 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
                 <TextBlock Text ="Name:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Name" Width="300" MaxLength="100" PlaceholderText="insert name..." Height="30"></TextBox>
+                <TextBox x:Name="txt_Name" Width="300" MaxLength="100" PlaceholderText="insert name..." Height="30"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
                 <TextBlock Text="Latitude:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
@@ -29,11 +29,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
                 <TextBlock Text="Water Depth:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="WaterDepth" Width="300" PlaceholderText="insert water depth..." Height="30"></TextBox>
+                <TextBox x:Name="WaterDepth" Width="300" MaxLength="5" PlaceholderText="insert water depth..." Height="30"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
                 <TextBlock Text="Description:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Description" Width="300" MaxLength="500" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" PlaceholderText="insert Description..." Height="300"></TextBox>
+                <TextBox x:Name="Description" Width="300" MaxLength="1000" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" PlaceholderText="insert Description..." Height="300"></TextBox>
             </StackPanel>
         </StackPanel>
         
@@ -44,14 +44,14 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="btnClose" Grid.Column="0" Width="150" Height="40" Margin="0" Click="btnClose_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE711;"></TextBlock>
                     <TextBlock Text="Close"></TextBlock>
                 </StackPanel>
             </Button>
 
             <Button x:Name="btnSave" Grid.Column="1" Width="150" Height="40" Margin="0" Click="btnSave_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;"></TextBlock>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE74E;"></TextBlock>
                     <TextBlock Text="Save"></TextBlock>
                 </StackPanel>
             </Button>

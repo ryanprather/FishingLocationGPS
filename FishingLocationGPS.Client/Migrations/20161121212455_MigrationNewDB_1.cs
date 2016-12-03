@@ -46,7 +46,7 @@ namespace FishingLocationGPS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PersonalGPSLocationNote",
+                name: "PersonalGPSLocationNotes",
                 columns: table => new
                 {
                     PersonalGPSLocationNoteID = table.Column<int>(nullable: false)
@@ -62,7 +62,6 @@ namespace FishingLocationGPS.Migrations
                     table.PrimaryKey("PK_MonitoredNOAALocations", x => x.PersonalGPSLocationNoteID);
                     table.ForeignKey("FK_PersonalGPSLocationID", x => x.PersonalGPSLocationID, "PersonalGPSLocations", "PersonalGPSLocationID");
                 });
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -74,7 +73,7 @@ namespace FishingLocationGPS.Migrations
                 name: "PersonalGPSLocations");
 
             migrationBuilder.DropTable(
-                name: "PersonalGPSLocationNote");
+                name: "PersonalGPSLocationNotes");
         }
     }
 }

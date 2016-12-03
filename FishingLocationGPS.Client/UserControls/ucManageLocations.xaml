@@ -49,31 +49,31 @@
                             <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,10" Canvas.ZIndex="2">
                                 <Button x:Name="btnAdd" Width="70" Height="40" Margin="20,0,10,0" Click="btnAdd_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE710;"></TextBlock>
                                         <TextBlock Text="Add"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnEdit" Width="70" Height="40" Margin="0,0,10,0" Click="btnEdit_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE70F;"></TextBlock>
                                         <TextBlock Text="Edit"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnDelete" Width="90" Height="40" Margin="0,0,10,0" Click="btnDelete_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE711;"></TextBlock>
                                         <TextBlock Text="Delete"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnSearchOpen" Width="90" Height="40" Margin="0,0,10,0" Click="btnSearchOpen_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE721;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE721;"></TextBlock>
                                         <TextBlock Text="Search"></TextBlock>
                                     </StackPanel>
                                 </Button>
-                                <Button x:Name="btnView" Width="80" Height="40" Margin="0,0,10,0" Click="btnView_Click">
+                                <Button x:Name="btnView" Width="85" Height="40" Margin="0,0,10,0" Click="btnView_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE18B;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE18B;"></TextBlock>
                                         <TextBlock Text="Details"></TextBlock>
                                     </StackPanel>
                                 </Button>

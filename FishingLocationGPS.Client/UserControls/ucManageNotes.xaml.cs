@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FishingLocationGPS.Client;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +20,19 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucManageNotes : UserControl
     {
+        private DataIO dataIO = new DataIO();
+        private List<Models.PersonalGPSLocationNote> Notes { get; set; }
+
         public ucManageNotes()
         {
             this.InitializeComponent();
+            this.LoadListData();
+        }
+
+        private void LoadListData()
+        {
+            Notes = dataIO.GetNotes();
+            lstNotes.ItemsSource = Notes;
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
@@ -54,9 +65,11 @@ namespace FishingLocationGPS.UserControls
 
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new Dialogs.cdAddNote();
+            await dialog.ShowAsync();
+            LoadListData();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

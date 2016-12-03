@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,16 +38,20 @@ namespace FishingLocationGPS.Dialogs
             this.Hide();
         }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            using (var dbContext = new DbAppContext())
+            try
             {
-                var deleteItem = dbContext.PersonalGPSLocations.First(item => item.PersonalGPSLocationID == Location.PersonalGPSLocationID);
-                if (deleteItem != null)
+                var isDeleted = await dataIO.DeleteLocation(Location);
+                if (isDeleted == true)
                 {
-                    dbContext.PersonalGPSLocations.Remove(deleteItem);
-                    dbContext.SaveChanges();
+                    this.Hide();
                 }
+            }
+            catch (Exception ex)
+            {
+                var dailog = new MessageDialog(ex.Message);
+                await dailog.ShowAsync();
             }
         }
 

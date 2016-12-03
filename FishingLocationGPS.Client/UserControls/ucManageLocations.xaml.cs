@@ -22,6 +22,7 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucManageLocations : UserControl
     {
+        private DataIO dataIO = new DataIO();
         private List<Models.PersonalGPSLocation> Locations { get; set; }
 
         public ucManageLocations()
@@ -54,13 +55,7 @@ namespace FishingLocationGPS.UserControls
 
         private void LoadListData()
         {
-            using (var dbContext = new DbAppContext())
-            {
-                Locations = dbContext.PersonalGPSLocations
-                    .Where(item => item.Name != String.Empty)
-                    .OrderBy(item => item.PersonalGPSLocationID).ToList();
-            }
-
+            Locations = dataIO.GetLocations();
             grdLocations.ItemsSource = Locations;
         }
 

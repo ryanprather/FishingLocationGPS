@@ -1,14 +1,14 @@
 ﻿<ContentDialog
-    x:Class="FishingLocationGPS.Dialogs.cdEditLocation"
+    x:Class="FishingLocationGPS.Dialogs.cdAddNote"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FishingLocationGPS.Dialogs"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="Edit Location">
+    Title="Add Note">
 
-    <Grid x:Name="Grid_EditLocation" Background="Transparent">
+    <Grid x:Name="Grid_AddNote" Background="Transparent" Margin="0,15,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
@@ -16,27 +16,23 @@
 
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-                <TextBlock Text ="Name:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Name" Width="300" MaxLength="100" PlaceholderText="insert name..." Height="30"></TextBox>
+                <TextBlock Text ="Location:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <ComboBox x:Name="cb_LocationID" Width="300" Loaded="LocationID_Loaded" PlaceholderText="Please select a location" Height="35" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <TextBlock Text ="Title:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <TextBox x:Name="txt_Title" Width="300" MaxLength="100" PlaceholderText="insert title..." Height="35"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
-                <TextBlock Text="Latitude:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Latitude" Width="300" PlaceholderText="insert lat..." Height="30"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
-                <TextBlock Text="Longitude:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Longitude" Width="300" PlaceholderText="insert long..." Height="30"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
-                <TextBlock Text="Water Depth:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="WaterDepth" Width="300" MaxLength="5" PlaceholderText="insert water depth..." Height="30"></TextBox>
+                <TextBlock Text="Fishing Date:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
+                <DatePicker x:Name="dp_FishingDate" Width="300" Height="35" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
                 <TextBlock Text="Description:" FontSize="18" TextAlignment="Left" Width="150" Margin="0,0,10,0" />
-                <TextBox x:Name="Description" Width="300" MaxLength="1000" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" PlaceholderText="insert notes..." Height="300"></TextBox>
+                <TextBox x:Name="txt_Description" Width="300" MaxLength="1500" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" PlaceholderText="insert description..." Height="300"></TextBox>
             </StackPanel>
         </StackPanel>
-        
+
         <Grid Grid.Row="1" Margin="0,15,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -49,7 +45,7 @@
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnSave" Grid.Column="1" Width="150" Height="40" Margin="0" Click="btnSave_Click"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <Button x:Name="btnSave" Grid.Column="1" Width="150" Height="40" Margin="0" Click="btnSave_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE74E;"></TextBlock>
                     <TextBlock Text="Save"></TextBlock>

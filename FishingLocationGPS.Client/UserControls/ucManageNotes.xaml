@@ -48,31 +48,25 @@
                             <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,10" Canvas.ZIndex="2">
                                 <Button x:Name="btnAdd" Width="70" Height="40" Margin="20,0,10,0" Click="btnAdd_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" Margin="0,3,3,0"></TextBlock>
                                         <TextBlock Text="Add"></TextBlock>
-                                    </StackPanel>
-                                </Button>
-                                <Button x:Name="btnEdit" Width="70" Height="40" Margin="0,0,10,0" Click="btnEdit_Click">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;"></TextBlock>
-                                        <TextBlock Text="Edit"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnDelete" Width="90" Height="40" Margin="0,0,10,0" Click="btnDelete_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;" Margin="0,3,3,0"></TextBlock>
                                         <TextBlock Text="Delete"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnSearchOpen" Width="90" Height="40" Margin="0,0,10,0" Click="btnSearchOpen_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE721;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE721;"></TextBlock>
                                         <TextBlock Text="Search"></TextBlock>
                                     </StackPanel>
                                 </Button>
-                                <Button x:Name="btnView" Width="80" Height="40" Margin="0,0,10,0" Click="btnView_Click">
+                                <Button x:Name="btnView" Width="85" Height="40" Margin="0,0,10,0" Click="btnView_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE18B;"></TextBlock>
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE18B;"></TextBlock>
                                         <TextBlock Text="Details"></TextBlock>
                                     </StackPanel>
                                 </Button>
@@ -96,9 +90,39 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <GridView Name="grdLocations" Grid.Row="1" Grid.Column="1" Background="Transparent" MinWidth="400" Margin="20,30,0,0"
+                    <ListView Name="lstNotes" Grid.Row="1" Grid.Column="1" Background="Transparent" MinWidth="400" Margin="20,30,0,0"
                         ScrollViewer.VerticalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollMode="Enabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" >
+                                    <StackPanel Orientation="Horizontal" Margin="20">
+                                        <Image Height="30" Width="30" Source="../Assets/noteIcon.png" Margin="0,0,20,0"/>
+                                        <StackPanel Background="Transparent" Height="60" Width="250" Orientation="Vertical">
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                                <TextBlock Text ="{Binding Title}" FontSize="25" FontStyle="Oblique" TextWrapping="Wrap" VerticalAlignment="Stretch" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,10">
+                                        <TextBlock Text ="Fishing Date:" Width="100" FontWeight="Bold" VerticalAlignment="Center" />
+                                        <TextBlock Text ="{Binding FishingDate}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,10">
+                                        <TextBlock Text ="Created Date:" Width="100" FontWeight="Bold" VerticalAlignment="Center" />
+                                        <TextBlock Text ="{Binding CreatedDate}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,10">
+                                        <TextBlock Text ="Description:" Width="100" FontWeight="Bold" VerticalAlignment="Center" />
+                                        <TextBlock Text ="{Binding Description}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--<GridView Name="grdLocations" Grid.Row="1" Grid.Column="1" Background="Transparent" MinWidth="400" Margin="20,30,0,0"
+                        >
                         <GridView.Transitions>
                             <TransitionCollection>
                                 <EntranceThemeTransition></EntranceThemeTransition>
@@ -138,7 +162,7 @@
 
                             </DataTemplate>
                         </GridView.ItemTemplate>
-                    </GridView>
+                    </GridView>-->
                 </Grid>
             </SplitView.Content>
         </SplitView>

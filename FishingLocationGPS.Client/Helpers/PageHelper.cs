@@ -45,7 +45,17 @@ namespace FishingLocationGPS.Client.Helpers
 
         public static TResult GetObject<TResult>(Grid currentGrid) where TResult : class, new()
         {
-            List<TextBox> textBoxes = GetLogicalChildCollection<TextBox>(currentGrid);
+            List<Control> controls = GetLogicalChildCollection<Control>(currentGrid);
+
+            if (controls.Any(item => item.Name.Contains("_")))
+            {
+                var changeNameList = controls.Where(item => item.Name.Contains("_"));
+                
+                foreach (var changeNameControl in changeNameList)
+                {
+                    controls.First(item => item.Name == changeNameControl.Name).Name = changeNameControl.Name.Split('_')[1];                  
+                }
+            }
 
             var result = new TResult();
             var type = result.GetType();
@@ -53,9 +63,20 @@ namespace FishingLocationGPS.Client.Helpers
             foreach (var property in properties)
             {
                 object value = null;
-                if (textBoxes.Any(item => item.Name == property.Name))
+                if (controls.Any(item => item.Name == property.Name))
                 {
-                    value = textBoxes.First(item => item.Name == property.Name).Text;
+                    var control = controls.First(item => item.Name == property.Name);
+                    if (control is TextBox)
+                    {
+                        var textBox = (TextBox)control;
+                        value = textBox.Text;
+                    }
+                    else if (control is DatePicker)
+                    {
+                        var datePicker = (DatePicker)control;
+                        value = datePicker.Date;
+                    }
+
                     if (property.PropertyType.IsGenericParameter && property.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
                     {
                         var genericArgs = property.PropertyType.GetGenericArguments();
@@ -63,6 +84,10 @@ namespace FishingLocationGPS.Client.Helpers
                         {
                             value = Convert.ChangeType(value, genericArgs[0]);
                         }
+                    }
+                    else if (property.PropertyType == typeof(DateTime))
+                    {
+                        value = DateTime.Parse(value.ToString());
                     }
                     else
                     {

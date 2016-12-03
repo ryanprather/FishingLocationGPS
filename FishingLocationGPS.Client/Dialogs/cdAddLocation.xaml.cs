@@ -31,7 +31,7 @@ namespace FishingLocationGPS.Dialogs
 
         private void ClearFields()
         {
-            Name.Text = String.Empty;
+            txt_Name.Text = String.Empty;
             Longitude.Text = String.Empty;
             Latitude.Text = String.Empty;
             Description.Text = String.Empty;
@@ -48,20 +48,16 @@ namespace FishingLocationGPS.Dialogs
             try
             {
                 if (WaterDepth.Text == String.Empty) WaterDepth.Text = "0";
+                if (Latitude.Text == String.Empty) throw new Exception("Latitude is a required field");
+                if (Longitude.Text == String.Empty) throw new Exception("Longitude is a required field");
                 var location = PageHelper.GetObject<Models.PersonalGPSLocation>(Grid_AddLocation);
-                var isValid = await PageHelper.ValidateObject(location);
-                location = dataIO.ValidateGPSCoordinates(location);
-                if (isValid)
+                var isAdded = await dataIO.AddLocation(location);
+                if (isAdded == true)
                 {
-                    location.CreatedDate = DateTime.Now;
-                    using (var dbContext = new DbAppContext())
-                    {
-                        dbContext.PersonalGPSLocations.Add(location);
-                        dbContext.SaveChanges();
-                    }
                     this.Hide();
                     this.ClearFields();
                 }
+                
             }
             catch (Exception ex)
             {

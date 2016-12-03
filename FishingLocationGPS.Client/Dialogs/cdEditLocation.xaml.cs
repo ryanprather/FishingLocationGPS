@@ -62,24 +62,10 @@ namespace FishingLocationGPS.Dialogs
             {
                 if (WaterDepth.Text == String.Empty) WaterDepth.Text = "0";
                 var location = PageHelper.GetObject<Models.PersonalGPSLocation>(Grid_EditLocation);
-                var isValid = await PageHelper.ValidateObject(location);
-                location = dataIO.ValidateGPSCoordinates(location);
-                if (isValid)
+                location.PersonalGPSLocationID = Location.PersonalGPSLocationID;
+                var isEdited = await dataIO.EditLocation(location);
+                if (isEdited == true)
                 {
-                    using (var dbContext = new DbAppContext())
-                    {
-                        var editItem = dbContext.PersonalGPSLocations.First(item => item.PersonalGPSLocationID == Location.PersonalGPSLocationID);
-                        if (editItem != null)
-                        {
-                            editItem.Name = location.Name;
-                            editItem.Latitude = location.Latitude;
-                            editItem.Longitude = location.Longitude;
-                            editItem.Description = location.Description;
-                            editItem.WaterDepth = location.WaterDepth;
-                            editItem.ModifiedDate = DateTime.Now;
-                            dbContext.SaveChanges();
-                        }
-                    }
                     this.Hide();
                     this.ClearFields();
                 }
