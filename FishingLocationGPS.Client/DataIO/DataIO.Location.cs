@@ -66,10 +66,13 @@ namespace FishingLocationGPS.Client
                 if (deleteItem != null)
                 {
                     dbContext.PersonalGPSLocations.Remove(deleteItem);
+                    if (dbContext.PersonalGPSLocationNotes.Any(item => item.PersonalGPSLocationID == deleteItem.PersonalGPSLocationID))
+                    {
+                        var noteRange = dbContext.PersonalGPSLocationNotes.Where(item => item.PersonalGPSLocationID == deleteItem.PersonalGPSLocationID);
+                        dbContext.PersonalGPSLocationNotes.RemoveRange(noteRange);
+                    }
                     dbContext.SaveChanges();
                 }
-                // need to delete notes associated with the location //
-
             }
 
             return isDeleted;

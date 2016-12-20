@@ -29,6 +29,7 @@ namespace FishingLocationGPS
         private UserControls.ucManageLocations ucManageLocations;
         private UserControls.ucDashBoard ucDashboard;
         private UserControls.ucManageNotes ucManageNotes;
+        private UserControls.ucUserOptions ucUserOptions;
 
         public MainPage()
         {
@@ -77,6 +78,12 @@ namespace FishingLocationGPS
                         case "MANAGE_NOTES":
                             ucManageNotes = new UserControls.ucManageNotes();
                             control_display.Children.Add(ucManageNotes);
+                            break;
+
+                        case "USER_OPTIONS":
+                            ucUserOptions = new UserControls.ucUserOptions();
+                            await ucUserOptions.LoadData();
+                            control_display.Children.Add(ucUserOptions);
                             break;
                     }
                     await Task.Delay(3000);

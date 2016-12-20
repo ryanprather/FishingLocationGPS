@@ -8,9 +8,10 @@ using FishingLocationGPS.Client;
 namespace FishingLocationGPS.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    partial class DbAppContextModelSnapshot : ModelSnapshot
+    [Migration("20161220194518_Migration_MonitoredNoaaLocation_IsDefault")]
+    partial class Migration_MonitoredNoaaLocation_IsDefault
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1");

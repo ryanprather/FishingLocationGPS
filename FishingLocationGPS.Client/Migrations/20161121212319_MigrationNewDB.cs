@@ -8,7 +8,7 @@ namespace FishingLocationGPS.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
+            var test = "sddd";
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

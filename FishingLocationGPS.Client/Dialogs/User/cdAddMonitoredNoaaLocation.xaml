@@ -1,0 +1,65 @@
+﻿<ContentDialog
+    x:Class="FishingLocationGPS.Dialogs.cdAddMonitoredNoaaLocation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FishingLocationGPS.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Add Noaa Location">
+
+    <Grid x:Name="Grid_AddLocation" Background="Transparent" Margin="0,15,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Station ID:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <TextBlock x:Name="txtLocationID" Width="400" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Name:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <TextBlock x:Name="txtName" Width="400" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Latitude:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <TextBlock x:Name="txtLatitude" Width="400" TextWrapping="Wrap" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Longitude:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <TextBlock x:Name="txtLongitude" Width="400" TextWrapping="Wrap" Height="30"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Type:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <TextBlock x:Name="txtType" Width="400" TextWrapping="Wrap" Height="30"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+                <TextBlock Text="Is Default:" FontSize="18" TextAlignment="Right" Width="150" Margin="0,0,10,0" />
+                <CheckBox x:Name="chkIsDefault" Width="400"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <Grid Grid.Row="1" Margin="0,15,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnClose" Grid.Column="0" Width="150" Height="40" Margin="0" Click="btnClose_Click"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE711;"></TextBlock>
+                    <TextBlock Text="Close"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnSave" Grid.Column="1" Width="150" Height="40" Margin="0" Click="btnSave_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Margin="0,3,3,0" Text="&#xE74E;"></TextBlock>
+                    <TextBlock Text="Save"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+    </Grid>
+</ContentDialog>

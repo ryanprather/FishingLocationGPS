@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,9 +36,19 @@ namespace FishingLocationGPS.UserControls
             lstNotes.ItemsSource = Notes;
         }
 
-        private void btnView_Click(object sender, RoutedEventArgs e)
+        private async void btnView_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectedItem = (Models.PersonalGPSLocationNote)lstNotes.SelectedItem;
+            if (selectedItem != null)
+            {
+                var dialog = new Dialogs.cdViewNote(selectedItem);
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                var dailog = new MessageDialog("Please select a location to view.");
+                await dailog.ShowAsync();
+            }
         }
         
         private void btnSearchOpen_Click(object sender, RoutedEventArgs e)
@@ -45,15 +56,22 @@ namespace FishingLocationGPS.UserControls
 
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectedItem = (Models.PersonalGPSLocationNote)lstNotes.SelectedItem;
+            if (selectedItem != null)
+            {
+                var dialog = new Dialogs.cdDeleteNote(selectedItem);
+                await dialog.ShowAsync();
+                LoadListData();
+            }
+            else
+            {
+                var dailog = new MessageDialog("Please select a location to edit.");
+                await dailog.ShowAsync();
+            }
         }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnOrderByCreated_Click(object sender, RoutedEventArgs e)
         {

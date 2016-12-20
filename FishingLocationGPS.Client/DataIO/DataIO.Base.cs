@@ -12,7 +12,8 @@ namespace FishingLocationGPS.Client
 {
     public partial class DataIO
     {
-        
+        protected const String NOAAActiveStations = "http://www.ndbc.noaa.gov/activestations.xml";
+
         public Models.PersonalGPSLocation ValidateGPSCoordinates(Models.PersonalGPSLocation location)
         {
             try
@@ -58,5 +59,16 @@ namespace FishingLocationGPS.Client
             return notes;
         }
 
+        public List<Models.MonitoredNOAALocation> GetMonitoredNoaaLocations()
+        {
+            var noaaMonitoredLocations = null as List<Models.MonitoredNOAALocation>;
+            using (var dbContext = new DbAppContext())
+            {
+                noaaMonitoredLocations = dbContext.MonitoredNOAALocations
+                    .OrderBy(item => item.StationID).ToList();
+            }
+
+            return noaaMonitoredLocations;
+        }
     }
 }

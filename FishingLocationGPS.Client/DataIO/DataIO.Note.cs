@@ -27,5 +27,22 @@ namespace FishingLocationGPS.Client
             return isAdded;
         }
 
+        public async Task<bool> DeleteNote(Models.PersonalGPSLocationNote note)
+        {
+            var isDeleted = false;
+
+            var isValid = await PageHelper.ValidateObject(note);
+            using (var dbContext = new DbAppContext())
+            {
+                var deleteItem = dbContext.PersonalGPSLocationNotes.First(item => item.PersonalGPSLocationNoteID == note.PersonalGPSLocationNoteID);
+                if (deleteItem != null)
+                {
+                    dbContext.PersonalGPSLocationNotes.Remove(deleteItem);
+                    dbContext.SaveChanges();
+                }
+            }
+
+            return isDeleted;
+        }
     }
 }

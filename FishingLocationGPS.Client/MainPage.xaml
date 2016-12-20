@@ -41,7 +41,7 @@
                         Width="70" Height="70" Background="Transparent"/>
                         <TextBlock Text="View Location" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
-                    <StackPanel Name ="User" Orientation="Horizontal" Tapped="StackPanel_Tapped">
+                    <StackPanel Name ="USER_OPTIONS" Orientation="Horizontal" Tapped="StackPanel_Tapped">
                         <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
                         Width="70" Height="70" Background="Transparent"/>
                         <TextBlock Text="User Settings" FontSize="18" VerticalAlignment="Center" />

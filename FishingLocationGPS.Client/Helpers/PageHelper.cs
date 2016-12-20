@@ -71,6 +71,11 @@ namespace FishingLocationGPS.Client.Helpers
                         var textBox = (TextBox)control;
                         value = textBox.Text;
                     }
+                    else if (control is CalendarDatePicker)
+                    {
+                        var datePicker = (CalendarDatePicker)control;
+                        value = datePicker.Date;
+                    }
                     else if (control is DatePicker)
                     {
                         var datePicker = (DatePicker)control;
@@ -87,7 +92,8 @@ namespace FishingLocationGPS.Client.Helpers
                     }
                     else if (property.PropertyType == typeof(DateTime))
                     {
-                        value = DateTime.Parse(value.ToString());
+
+                        value = (value != null && value.ToString() != String.Empty) ? DateTime.Parse(value.ToString()) : DateTime.Now;
                     }
                     else
                     {

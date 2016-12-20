@@ -99,21 +99,31 @@
     <Compile Include="DataIO\Context\AppContext.cs" />
     <Compile Include="DataIO\DataIO.Base.cs" />
     <Compile Include="DataIO\DataIO.Location.cs" />
+    <Compile Include="DataIO\DataIO.Noaa.cs" />
     <Compile Include="DataIO\DataIO.Note.cs" />
-    <Compile Include="Dialogs\cdAddLocation.xaml.cs">
+    <Compile Include="Dialogs\Location\cdAddLocation.xaml.cs">
       <DependentUpon>cdAddLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\cdAddNote.xaml.cs">
+    <Compile Include="Dialogs\User\cdAddMonitoredNoaaLocation.xaml.cs">
+      <DependentUpon>cdAddMonitoredNoaaLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Note\cdAddNote.xaml.cs">
       <DependentUpon>cdAddNote.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\cdDeleteLocation.xaml.cs">
+    <Compile Include="Dialogs\Location\cdDeleteLocation.xaml.cs">
       <DependentUpon>cdDeleteLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\cdEditLocation.xaml.cs">
+    <Compile Include="Dialogs\Note\cdDeleteNote.xaml.cs">
+      <DependentUpon>cdDeleteNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Location\cdEditLocation.xaml.cs">
       <DependentUpon>cdEditLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\cdViewLocation.xaml.cs">
+    <Compile Include="Dialogs\Location\cdViewLocation.xaml.cs">
       <DependentUpon>cdViewLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Note\cdViewNote.xaml.cs">
+      <DependentUpon>cdViewNote.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\PageHelper.cs" />
@@ -128,8 +138,13 @@
     <Compile Include="Migrations\20161121212455_MigrationNewDB_1.designer.cs">
       <DependentUpon>20161121212455_MigrationNewDB_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20161220194518_Migration_MonitoredNoaaLocation_IsDefault.cs" />
+    <Compile Include="Migrations\20161220194518_Migration_MonitoredNoaaLocation_IsDefault.designer.cs">
+      <DependentUpon>20161220194518_Migration_MonitoredNoaaLocation_IsDefault.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DbAppContextModelSnapshot.cs" />
     <Compile Include="Models\MonitoredNOAALocation.cs" />
+    <Compile Include="Models\NOAALocation.cs" />
     <Compile Include="Models\PersonalGPSLocation.cs" />
     <Compile Include="Models\PersonalGPSLocationNote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +160,9 @@
     <Compile Include="UserControls\ucMapLocations.xaml.cs">
       <DependentUpon>ucMapLocations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucUserOptions.xaml.cs">
+      <DependentUpon>ucUserOptions.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -153,6 +171,7 @@
     <None Include="FishingLocationGPS_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\buoyIcon.png" />
     <Content Include="Assets\FLGPSicontray88.png" />
     <Content Include="Assets\FLGPSicontray88.scale-100.png" />
     <Content Include="Assets\FLGPSicontray88.scale-200.png" />
@@ -161,6 +180,7 @@
     <Content Include="Assets\FLGPSWide310x150.png" />
     <Content Include="Assets\gpsIcon.png" />
     <Content Include="Assets\icontray.png" />
+    <Content Include="Assets\monitoredBuoyIcon.png" />
     <Content Include="Assets\noteIcon.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -176,23 +196,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dialogs\cdAddLocation.xaml">
+    <Page Include="Dialogs\Location\cdAddLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\cdAddNote.xaml">
+    <Page Include="Dialogs\User\cdAddMonitoredNoaaLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\cdDeleteLocation.xaml">
+    <Page Include="Dialogs\Note\cdAddNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\cdEditLocation.xaml">
+    <Page Include="Dialogs\Location\cdDeleteLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\cdViewLocation.xaml">
+    <Page Include="Dialogs\Note\cdDeleteNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Location\cdEditLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Location\cdViewLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Note\cdViewNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ucMapLocations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucUserOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

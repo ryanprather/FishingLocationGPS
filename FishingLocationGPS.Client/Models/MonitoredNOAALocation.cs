@@ -13,9 +13,7 @@ namespace FishingLocationGPS.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MonitoredNOAALocationID { get; set; }
         
-        public decimal Latitude { get; set; }
-        
-        public decimal Longitude { get; set; }
+        public bool IsDefault { get; set; }
 
         [Required]
         public String Name { get; set; }
@@ -26,5 +24,9 @@ namespace FishingLocationGPS.Models
         public String Type { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+
+        public decimal Latitude { get; set; }
+
+        public decimal Longitude { get; set; }
     }
 }
