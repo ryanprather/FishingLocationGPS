@@ -12,14 +12,15 @@ namespace FishingLocationGPS.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MonitoredNOAALocationID { get; set; }
-        
+
+        [Required]
         public bool IsDefault { get; set; }
 
         [Required]
         public String Name { get; set; }
 
         [Required]
-        public int StationID { get; set; }
+        public String StationID { get; set; }
 
         public String Type { get; set; }
 

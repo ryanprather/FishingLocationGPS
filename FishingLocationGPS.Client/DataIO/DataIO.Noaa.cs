@@ -62,5 +62,14 @@ namespace FishingLocationGPS.Client
 
             return isAdded;
         }
+
+        public async void GetNoaa_Waves(Models.NOAALocation noaaLocation)
+        {
+            var formatted_NOAAWebService = DataIO.NOAA_WebService.Replace("@@ObservedProperty", "waves").Replace("@StationID", noaaLocation.LocationId);
+            var client = new HttpClient();
+            var response = await client.GetStreamAsync(formatted_NOAAWebService);
+
+
+        }
     }
 }

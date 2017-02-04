@@ -8,8 +8,8 @@ using FishingLocationGPS.Client;
 namespace FishingLocationGPS.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20161220194518_Migration_MonitoredNoaaLocation_IsDefault")]
-    partial class Migration_MonitoredNoaaLocation_IsDefault
+    [Migration("20161221215306_INIT_Migration")]
+    partial class INIT_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,6 @@ namespace FishingLocationGPS.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<int>("StationID");
 
                     b.Property<string>("Type");
 

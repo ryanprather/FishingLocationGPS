@@ -130,17 +130,17 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20161121212319_MigrationNewDB.cs" />
-    <Compile Include="Migrations\20161121212319_MigrationNewDB.designer.cs">
-      <DependentUpon>20161121212319_MigrationNewDB.cs</DependentUpon>
+    <Compile Include="Migrations\20161221215306_INIT_Migration.cs" />
+    <Compile Include="Migrations\20161221215306_INIT_Migration.designer.cs">
+      <DependentUpon>20161221215306_INIT_Migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20161121212455_MigrationNewDB_1.cs" />
-    <Compile Include="Migrations\20161121212455_MigrationNewDB_1.designer.cs">
-      <DependentUpon>20161121212455_MigrationNewDB_1.cs</DependentUpon>
+    <Compile Include="Migrations\20161221215730_INIT_Migration_1.cs" />
+    <Compile Include="Migrations\20161221215730_INIT_Migration_1.designer.cs">
+      <DependentUpon>20161221215730_INIT_Migration_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20161220194518_Migration_MonitoredNoaaLocation_IsDefault.cs" />
-    <Compile Include="Migrations\20161220194518_Migration_MonitoredNoaaLocation_IsDefault.designer.cs">
-      <DependentUpon>20161220194518_Migration_MonitoredNoaaLocation_IsDefault.cs</DependentUpon>
+    <Compile Include="Migrations\20161221215907_INIT_Migration_2.cs" />
+    <Compile Include="Migrations\20161221215907_INIT_Migration_2.designer.cs">
+      <DependentUpon>20161221215907_INIT_Migration_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DbAppContextModelSnapshot.cs" />
     <Compile Include="Models\MonitoredNOAALocation.cs" />

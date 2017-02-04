@@ -8,8 +8,8 @@ using FishingLocationGPS.Client;
 namespace FishingLocationGPS.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20161121212319_MigrationNewDB")]
-    partial class MigrationNewDB
+    [Migration("20161221215730_INIT_Migration_1")]
+    partial class INIT_Migration_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,14 +23,14 @@ namespace FishingLocationGPS.Migrations
 
                     b.Property<DateTime?>("CreatedDate");
 
+                    b.Property<bool>("IsDefault");
+
                     b.Property<decimal>("Latitude");
 
                     b.Property<decimal>("Longitude");
 
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<int>("StationID");
 
                     b.Property<string>("Type");
 
@@ -46,6 +46,8 @@ namespace FishingLocationGPS.Migrations
 
                     b.Property<DateTime?>("CreatedDate");
 
+                    b.Property<string>("Description");
+
                     b.Property<decimal>("Latitude");
 
                     b.Property<decimal>("Longitude");
@@ -55,13 +57,32 @@ namespace FishingLocationGPS.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<string>("Notes");
-
                     b.Property<int>("WaterDepth");
 
                     b.HasKey("PersonalGPSLocationID");
 
                     b.ToTable("PersonalGPSLocations");
+                });
+
+            modelBuilder.Entity("FishingLocationGPS.Models.PersonalGPSLocationNote", b =>
+                {
+                    b.Property<int>("PersonalGPSLocationNoteID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("FishingDate");
+
+                    b.Property<int>("PersonalGPSLocationID");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("PersonalGPSLocationNoteID");
+
+                    b.ToTable("PersonalGPSLocationNotes");
                 });
         }
     }

@@ -82,85 +82,120 @@ namespace FishingLocationGPS.Client.Helpers
                         value = datePicker.Date;
                     }
 
-                    if (property.PropertyType.IsGenericParameter && property.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    if (property.PropertyType == typeof(String))
                     {
-                        var genericArgs = property.PropertyType.GetGenericArguments();
-                        if (genericArgs.Length > 0)
+                        try
                         {
-                            value = Convert.ChangeType(value, genericArgs[0]);
+                            value = value.ToString().Trim();
+                        }
+                        catch (Exception ex)
+                        {
+                            value = "";
                         }
                     }
                     else if (property.PropertyType == typeof(DateTime))
                     {
-
-                        value = (value != null && value.ToString() != String.Empty) ? DateTime.Parse(value.ToString()) : DateTime.Now;
-                    }
-                    else
-                    {
-                        value = Convert.ChangeType(value, property.PropertyType);
-                    }
-                    bool isPropertySet = false;
-                    if (value != null)
-                    {
-                        if (property.PropertyType == typeof(Int16) || property.PropertyType == typeof(Int32) || property.PropertyType == typeof(Int64))
+                        try
                         {
-                            if (value is string)
+                            DateTime outValue = new DateTime();
+                            bool isDate = DateTime.TryParse(value.ToString(), out outValue);
+                            if (isDate == true)
                             {
-                                if (property.CanWrite) property.SetValue(result, int.Parse(value as string), null);
-                                isPropertySet = true;
+                                value = outValue;
                             }
                         }
-                        else if (property.PropertyType == typeof(string))
+                        catch (Exception ex)
                         {
-                            if (property.CanWrite) property.SetValue(result, value.ToString(), null);
-                            isPropertySet = true;
-                        }
-                        else if (property.PropertyType == typeof(bool))
-                        {
-                            if (value is Int16 || value is Int32 || value is Int64)
-                            {
-                                switch ((int)value)
-                                {
-                                    case 0:
-                                        if (property.CanWrite) property.SetValue(result, false, null);
-                                        isPropertySet = true;
-                                        break;
-                                    case 1:
-                                        if (property.CanWrite) property.SetValue(result, true, null);
-                                        isPropertySet = true;
-                                        break;
-                                    default:
-                                        throw new Exception("Cannot convert int " + value + " to bool");
-                                }
-                            }
-                            else
-                            {
-                                if (property.CanWrite) property.SetValue(result, bool.Parse(value.ToString()), null);
-                                isPropertySet = true;
-                            }
-                        }
-                        else if (property.PropertyType == typeof(char) || property.PropertyType == typeof(char?))
-                        {
-                            if (property.CanWrite) property.SetValue(result, char.Parse(value.ToString()), null);
-                            isPropertySet = true;
+                            value = new DateTime();
                         }
                     }
-                    if (isPropertySet == false)
+                    else if (property.PropertyType == typeof(DateTime?))
                     {
-                        var attributes = property.GetCustomAttributes(true);
-                        if (attributes != null && attributes.Count() > 0)
+                        try
                         {
-                            if (property.CanWrite) property.SetValue(result, value, null);
+                            DateTime outValue = new DateTime();
+                            bool isValid = DateTime.TryParse(value.ToString(), out outValue);
+                            if (isValid == true)
+                            {
+                                value = outValue;
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            if (property.CanWrite) property.SetValue(result, value, null);
+                            value = null;
                         }
-
+                    }
+                    else if (property.PropertyType == typeof(int))
+                    {
+                        try
+                        {
+                            int outValue = 0;
+                            bool isValid = int.TryParse(value.ToString(), out outValue);
+                            if (isValid == true)
+                            {
+                                value = outValue;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            value = 0;
+                        }
+                    }
+                    else if (property.PropertyType == typeof(int?))
+                    {
+                        try
+                        {
+                            int outValue = 0;
+                            bool isValid = int.TryParse(value.ToString(), out outValue);
+                            if (isValid == true)
+                            {
+                                value = outValue;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            value = null;
+                        }
+                    }
+                    else if (property.PropertyType == typeof(Decimal))
+                    {
+                        try
+                        {
+                            Decimal outValue = 0;
+                            bool isDate = Decimal.TryParse(value.ToString(), out outValue);
+                            if (isDate == true)
+                            {
+                                value = outValue;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            value = 0;
+                        }
+                    }
+                    else if (property.PropertyType == typeof(Decimal?))
+                    {
+                        try
+                        {
+                            Decimal outValue = 0;
+                            bool isDate = Decimal.TryParse(value.ToString(), out outValue);
+                            if (isDate == true)
+                            {
+                                value = outValue;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            value = null;
+                        }
+                    }
+                    if (property.CanWrite == true)
+                    {
+                        property.SetValue(result, value, null);
                     }
                 }
-            }
-
+            }       
+            
             return result;
         }
 

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using FishingLocationGPS.Client;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -19,9 +21,19 @@ namespace FishingLocationGPS.UserControls
 {
     public sealed partial class ucDashBoard : UserControl
     {
+        private DataIO dataIO = new DataIO();
+        private IEnumerable<Models.MonitoredNOAALocation> m_MonitoredNoaaStations;
+
         public ucDashBoard()
         {
             this.InitializeComponent();
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            m_MonitoredNoaaStations = dataIO.GetMonitoredNoaaLocations();
+            lstMonitoredNoaaLocations.ItemsSource = m_MonitoredNoaaStations;
         }
     }
 }

@@ -65,7 +65,7 @@ namespace FishingLocationGPS.Dialogs
                     Type = txtType.Text,
                     Latitude = Decimal.Parse(txtLatitude.Text),
                     Longitude = Decimal.Parse(txtLongitude.Text),
-                    StationID = int.Parse(txtLocationID.Text),
+                    StationID = txtLocationID.Text,
                     IsDefault = (bool)chkIsDefault.IsChecked,
                 };
 
@@ -81,7 +81,7 @@ namespace FishingLocationGPS.Dialogs
                 var dailog = new MessageDialog(ex.Message);
                 await dailog.ShowAsync();
             }
-            
         }
+
     }
 }

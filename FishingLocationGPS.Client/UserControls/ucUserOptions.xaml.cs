@@ -48,7 +48,8 @@ namespace FishingLocationGPS.UserControls
         private async void btnMonitoredStationAdd_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = (Models.NOAALocation)lstNoaaLocations.SelectedItem;
-            var alreadyMonitoring = MonitoredStations.Any(item => item.MonitoredNOAALocationID.ToString() == selectedItem.LocationId);
+
+            var alreadyMonitoring = (MonitoredStations != null) ? MonitoredStations.Any(item => item.MonitoredNOAALocationID.ToString() == selectedItem.LocationId) : false;
             if (selectedItem != null && !alreadyMonitoring)
             {
                 var dialog = new Dialogs.cdAddMonitoredNoaaLocation(selectedItem);

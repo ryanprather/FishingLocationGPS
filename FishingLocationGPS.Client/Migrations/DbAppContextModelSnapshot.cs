@@ -31,7 +31,8 @@ namespace FishingLocationGPS.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("StationID");
+                    b.Property<string>("StationID")
+                        .IsRequired();
 
                     b.Property<string>("Type");
 

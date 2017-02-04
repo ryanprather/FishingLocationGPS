@@ -13,7 +13,8 @@ namespace FishingLocationGPS.Client
     public partial class DataIO
     {
         protected const String NOAAActiveStations = "http://www.ndbc.noaa.gov/activestations.xml";
-
+        protected const String NOAA_WebService = "http://sdf.ndbc.noaa.gov/sos/server.php?service=SOS&request=GetObservation&version=1.0.0&responseFormat=text/csv&dataType=SixMinuteTidePredictions&unit=Feet&observedProperty=@ObservedProperty&offering=urn:ioos:station:wmo:@StationID";
+        
         public Models.PersonalGPSLocation ValidateGPSCoordinates(Models.PersonalGPSLocation location)
         {
             try

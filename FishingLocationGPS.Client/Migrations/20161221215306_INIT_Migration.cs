@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingLocationGPS.Migrations
 {
-    public partial class MigrationNewDB_1 : Migration
+    public partial class INIT_Migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,8 +18,9 @@ namespace FishingLocationGPS.Migrations
                     Latitude = table.Column<decimal>(nullable: false),
                     Longitude = table.Column<decimal>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    StationID = table.Column<int>(nullable: false),
-                    Type = table.Column<string>(nullable: true)
+                    StationID = table.Column<string>(nullable: false),
+                    Type = table.Column<string>(nullable: true),
+                    IsDefault = table.Column<bool>(nullable: false),
                 },
                 constraints: table =>
                 {
